@@ -39,9 +39,9 @@ Acceptance Criteria:
 
     scenario 'password confirmation does not match confirmation' do
       fill_in 'admin_password', with: 'password'
-      fill_in 'Password Confirmation', with: 'somethingdifferent'
+      fill_in 'Password confirmation', with: 'somethingdifferent'
 
-      click_button 'Sign Up'
+      click_button 'Sign up'
       expect(page).to have_content("doesn't match")
       expect(page).to_not have_content("Sign Out")
     end
