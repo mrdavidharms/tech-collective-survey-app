@@ -1,0 +1,13 @@
+
+
+.surveys
+  - if !@surveys.empty?
+    - @surveys.each do |survey|
+      = link_to survey_path(survey) do
+        .survey
+          %p.survey-title= survey.title
+
+
+  - else
+    %h2 No Surveys Created
+    
