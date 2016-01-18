@@ -1,0 +1,120 @@
+
+My breakable toy is going to be a survey app for Tech Collective to use at their Grrl Tech event.  They have all the teachers and students take a survey at the end of the program, so this will simplify the process and give them a reusable tool.  Ideally it will have the ability to export the data but this is the bare bones version.
+
+As an Admin
+I want to be able to register with the app
+So I can create surveys
+
+Acceptance Criteria:
+
+- I should see a sign up form
+- If I fill it out incorrectly I should see an error
+- If I fill it out correctly I should be taken to the admin root page
+
+
+
+
+
+As a Admin
+I want to be able to log into the app
+So I can create a survey
+
+Acceptance Criteria:
+
+- I should see a registration form
+- If I fill it out incorrectly I should see an error
+- If I fill it out correctly I should be taken to the teacher survey
+
+
+
+User Stories
+
+As a Tech Collective Administrator
+I want to be able to create separate surveys
+So I can add questions to them
+
+Acceptance Criteria:
+
+- I should be able to click a button to create a new survey
+- I should be asked what the name of the new survey is, and click accept
+- If I don’t put in a name I should get an error message
+- If I put in a name I should get a success message and be taken back to the list of surveys I’ve created
+
+As a Tech Collective Administrator
+I want to be able to view a list of surveys I’ve created
+So I can keep track of them
+
+Acceptance Criteria:
+
+- I should be able to see icons for each survey created
+- I should be able to see their names underneath each one
+
+As a Tech Collective Administrator
+I want to be able to edit a survey picked from those I’ve created
+So I can see what questions are on it, and edit it further
+
+Acceptance Criteria:
+
+- I should be able to double click on a survey and be taken to that surveys page
+
+
+
+As a Tech Collective Administrator
+I want to be able to create a question
+So I can add it to a survey
+
+Acceptance Criteria:
+
+- I must fill in the text field, if it’s blank, I will see an error.
+- I have to pick between having the student use two different types of answers,    numerical or text.
+- If I do not specify which of the two types of answers I want, I will see an error.
+- If all the required information is their the survey question will be saved.
+- I should be able to choose between adding the question to a new survey, or add it to an existing one.
+- If I add it to a new survey, I should be taken to the new survey page and be able to see the question I added.
+- If the question is appended to an existing survey, I should be taken to the existing survey and be able to see the question as well as all other questions previously entered.
+
+As a Tech Collective Administrator
+I want to be able to leave the question page
+So I can return to the survey it belongs to
+
+Acceptance Criteria:
+
+- I should be able to see an X in the top right corner of the page
+- I should be able to click an X on the top right corner.
+- If there is no text present I should be taken to the survey page
+- If there is text present in the survey and the X is clicked, I should see a text asking me if I want to save the question
+- The text should have a yes button and a no button
+-If I click ‘yes’ it should save what is present and return me to the survey page.
+-If I click ‘no’ it should return me to the survey page without saving
+
+As a Tech Collective Administrator
+I want to be able to see all the surveys completed
+So I can peruse them
+
+Acceptance Criteria:
+
+-I should be able to see the student and teacher survey answers in separate places
+
+
+
+As a Student
+I want to be able to take a survey
+and submit it
+
+Acceptance Criteria:
+
+-all fields should be filled in that are required
+-if a field isn’t filled in that’s required the teacher should see an error message
+-they should be able to submit with a button
+
+
+
+As a Student
+I want to be able to take a survey
+and submit it
+
+Acceptance Criteria:
+
+-all fields should be filled in that are required
+-if a field isn’t filled in that’s required the student should see an error message
+-they should be able to submit with a button

@@ -1,0 +1,26 @@
+%nav.top-bar{"data-topbar" => "", :role => "navigation"}
+  %ul.title-area
+    %li.name
+
+      %h1#Surveys
+        %a.home{:href => root_path} Surveys
+
+    / Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+    %li.toggle-topbar.menu-icon
+      %a{:href => "#"}
+        %span Menu
+  %section.top-bar-section
+    / Right Nav Section
+    %ul.right
+      %li.active
+        - if admin_signed_in?
+          %a{ href: "admins/#{current_admin.id}"}
+          %li= link_to 'Sign Out', destroy_admin_session_path, method: :delete
+        - else
+          %li.has-dropdown
+            %a{:href => "#"} Account
+            %ul.dropdown
+              %li= link_to 'Sign In', new_admin_session_path
+              %li.active= link_to 'Sign Up', new_admin_registration_path
+    %ul.left
+      %li= link_to "Add New survey", new_survey_path
