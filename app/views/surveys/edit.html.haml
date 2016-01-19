@@ -1,0 +1,13 @@
+%h1 Edit Survey
+= form_for(@survey) do |f|
+  %div
+    = f.label :title
+    = f.text_field :title, placeholder: "Title"
+
+  %div
+    = f.label :group
+    = f.text_field :group, placeholder: "Survey For"
+
+  .actions
+    = f.submit "Edit"
+%div= link_to 'Back', surveys_path

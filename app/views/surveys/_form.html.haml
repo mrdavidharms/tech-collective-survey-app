@@ -1,0 +1,11 @@
+= form_for(@survey) do |f|
+  %div.survey-form-title
+    = f.label :title
+    = f.text_field :title, placeholder: "Title"
+
+  %div.survey-form-title
+    = f.label :group
+    = f.text_field :group, placeholder: "Survey For"
+
+  .form-actions
+    = f.button "Add Survey"

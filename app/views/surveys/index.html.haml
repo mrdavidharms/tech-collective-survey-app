@@ -1,6 +1,6 @@
 
-
 .surveys
+
   - if !@surveys.empty?
     - @surveys.each do |survey|
       = link_to survey_path(survey) do
@@ -10,4 +10,3 @@
 
   - else
     %h2 No Surveys Created
-    

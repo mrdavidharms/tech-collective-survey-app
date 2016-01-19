@@ -6,4 +6,9 @@ FactoryGirl.define do
     sequence(:email) { |n| "person#{n}@email.com" }
     password '12345678'
     end
+
+    factory :survey do
+      title "Grrl Tech"
+      group "Students"
+    end
   end

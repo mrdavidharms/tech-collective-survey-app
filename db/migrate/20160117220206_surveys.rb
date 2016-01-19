@@ -1,10 +1,11 @@
 class Surveys < ActiveRecord::Migration
   def change
     create_table :surveys do |t|
-      t.string :title
-      t.string :type
+      t.string :title, null: false
+      t.string :group
+      t.belongs_to :admin, null: false
 
-      t.timestamp
+      t.timestamps null: false
     end
   end
 end

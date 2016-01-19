@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
-  resources :admins
-  resources :surveys, only: [:new]
+
+    resources :admins
+    resources :surveys
 
   root "surveys#index"
 end
