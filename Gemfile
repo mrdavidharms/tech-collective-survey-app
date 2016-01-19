@@ -10,12 +10,12 @@ gem 'haml'
 gem 'foundation-rails'
 
 group :development, :test do
-  gem 'capybara'
-  gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
+  gem 'capybara'
+  gem 'factory_girl'
+  gem 'valid_attribute'
   gem 'pry-rails'
   gem 'shoulda'
-  gem 'valid_attribute'
   gem 'coveralls', require: false
 end
 
