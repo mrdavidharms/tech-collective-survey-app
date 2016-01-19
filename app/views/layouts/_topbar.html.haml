@@ -16,11 +16,11 @@
         - if admin_signed_in?
           %a{ href: "admins/#{current_admin.id}"}
           %li= link_to 'Sign Out', destroy_admin_session_path, method: :delete
+          %ul.left
+            %li= link_to "Add New Survey", new_survey_path(@admin, @survey)
         - else
           %li.has-dropdown
             %a{:href => "#"} Account
             %ul.dropdown
               %li= link_to 'Sign In', new_admin_session_path
               %li.active= link_to 'Sign Up', new_admin_registration_path
-    %ul.left
-      %li= link_to "Add New survey", new_survey_path

@@ -7,13 +7,9 @@ So I can create surveys
 
 Acceptance Criteria:
 
-- I should see a sign up form
-- If I fill it out incorrectly I should see an error
-- If I fill it out correctly I should be taken to the admin root page
-
-
-
-
+X I should see a sign up form
+X If I fill it out incorrectly I should see an error
+X If I fill it out correctly I should be taken to the admin root page
 
 As a Admin
 I want to be able to log into the app
@@ -21,10 +17,9 @@ So I can create a survey
 
 Acceptance Criteria:
 
-- I should see a registration form
-- If I fill it out incorrectly I should see an error
-- If I fill it out correctly I should be taken to the teacher survey
-
+X I should see a registration form
+X If I fill it out incorrectly I should see an error
+X If I fill it out correctly I should be taken to the teacher survey
 
 
 User Stories
@@ -36,7 +31,7 @@ So I can add questions to them
 Acceptance Criteria:
 
 - I should be able to click a button to create a new survey
-- I should be asked what the name of the new survey is, and click accept
+- I should be asked what the name and type of the new survey is, and click accept
 - If I don’t put in a name I should get an error message
 - If I put in a name I should get a success message and be taken back to the list of surveys I’ve created
 
@@ -48,6 +43,7 @@ Acceptance Criteria:
 
 - I should be able to see icons for each survey created
 - I should be able to see their names underneath each one
+- they should be grouped by type
 
 As a Tech Collective Administrator
 I want to be able to edit a survey picked from those I’ve created
@@ -57,8 +53,6 @@ Acceptance Criteria:
 
 - I should be able to double click on a survey and be taken to that surveys page
 
-
-
 As a Tech Collective Administrator
 I want to be able to create a question
 So I can add it to a survey
@@ -66,12 +60,11 @@ So I can add it to a survey
 Acceptance Criteria:
 
 - I must fill in the text field, if it’s blank, I will see an error.
-- I have to pick between having the student use two different types of answers,    numerical or text.
-- If I do not specify which of the two types of answers I want, I will see an error.
-- If all the required information is their the survey question will be saved.
-- I should be able to choose between adding the question to a new survey, or add it to an existing one.
-- If I add it to a new survey, I should be taken to the new survey page and be able to see the question I added.
-- If the question is appended to an existing survey, I should be taken to the existing survey and be able to see the question as well as all other questions previously entered.
+- I have to pick between having the student use 3 different types of answers, rating, text, or multiple choice.
+- If I do not specify which of the three answers I want, I will see an error.
+- If I do not specify what text I want, I will see an error.
+- If one is picked and the text is entered there the survey question will be saved.
+- I should be able to see the question on the survey index page
 
 As a Tech Collective Administrator
 I want to be able to leave the question page
@@ -96,7 +89,6 @@ Acceptance Criteria:
 -I should be able to see the student and teacher survey answers in separate places
 
 
-
 As a Student
 I want to be able to take a survey
 and submit it
@@ -106,8 +98,6 @@ Acceptance Criteria:
 -all fields should be filled in that are required
 -if a field isn’t filled in that’s required the teacher should see an error message
 -they should be able to submit with a button
-
-
 
 As a Student
 I want to be able to take a survey

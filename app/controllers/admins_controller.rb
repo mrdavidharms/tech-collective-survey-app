@@ -5,6 +5,5 @@ class AdminsController < ApplicationController
   end
 
   def create
-  
   end
 end
