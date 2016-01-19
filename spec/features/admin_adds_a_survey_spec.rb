@@ -25,26 +25,26 @@ feature "admin adds surveys", %{
       end
     end
       context "Signed in admin" do
-       let(:admin) { FactoryGirl.create(:admin) }
-       let!(:survey) { FactoryGirl.create(:survey, admin: admin) }
+        let(:admin) { FactoryGirl.create(:admin) }
+        let!(:survey) { FactoryGirl.create(:survey, admin: admin) }
 
-       before do
-         sign_in_as(admin)
-       end
+        before do
+          sign_in_as(admin)
+        end
 
-       scenario "Admin can see survey creation page" do
-         click_link "Add New Survey"
-         expect(page).to have_content "Title"
-         expect(page).to have_content "Group"
-       end
-       scenario "Admin adds survey successfully" do
+        scenario "Admin can see survey creation page" do
+          click_link "Add New Survey"
+          expect(page).to have_content "Title"
+          expect(page).to have_content "Group"
+        end
+        scenario "Admin adds survey successfully" do
 
-         visit new_survey_path
-         fill_in 'Title', with: survey.title
-         fill_in 'Group', with: survey.group
-         click_button 'Add Survey'
-         expect(page).to have_content "Survey Added Successfully"
-         expect(page).to have_content survey.title
-       end
+          visit new_survey_path
+          fill_in 'Title', with: survey.title
+          fill_in 'Group', with: survey.group
+          click_button 'Add Survey'
+          expect(page).to have_content "Survey Added Successfully"
+          expect(page).to have_content survey.title
+        end
+      end
     end
-  end

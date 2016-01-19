@@ -26,6 +26,7 @@ class SurveysController < ApplicationController
   end
 
   protected
+  
   def survey_params
     params.require(:survey).permit(:title, :group)
   end
