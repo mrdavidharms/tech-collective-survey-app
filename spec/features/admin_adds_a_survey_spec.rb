@@ -46,5 +46,14 @@ feature "admin adds surveys", %{
           expect(page).to have_content "Survey Added Successfully"
           expect(page).to have_content survey.title
         end
+        scenario "Admin adds survey unsuccessfully" do
+
+          visit new_survey_path
+          fill_in 'Title', with: ""
+          click_button 'Add Survey'
+          expect(page).to have_content "Title can't be blank"
+          expect(page).to_not have_content "Survey Added Successfully"
+          expect(page).to_not have_content survey.title
+        end
       end
     end

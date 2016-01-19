@@ -21,12 +21,15 @@ class SurveysController < ApplicationController
       redirect_to surveys_path
     else
       flash.now[:errors] = @survey.errors.full_messages.join(". ")
-      render :index
+      render :new
     end
   end
 
+  def edit
+  @survey = Survey.find(params[:id])
+  end
   protected
-  
+
   def survey_params
     params.require(:survey).permit(:title, :group)
   end
