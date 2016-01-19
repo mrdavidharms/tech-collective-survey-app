@@ -89,22 +89,13 @@ Acceptance Criteria:
 -I should be able to see the student and teacher survey answers in separate places
 
 
-As a Student
+As a User
 I want to be able to take a survey
 and submit it
 
 Acceptance Criteria:
 
 -all fields should be filled in that are required
+-a user should only be able to see the surveys on the survey index page marked for view   
 -if a field isn’t filled in that’s required the teacher should see an error message
--they should be able to submit with a button
-
-As a Student
-I want to be able to take a survey
-and submit it
-
-Acceptance Criteria:
-
--all fields should be filled in that are required
--if a field isn’t filled in that’s required the student should see an error message
 -they should be able to submit with a button
