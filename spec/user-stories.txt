@@ -30,10 +30,10 @@ So I can add questions to them
 
 Acceptance Criteria:
 
-- I should be able to click a button to create a new survey
-- I should be asked what the name and type of the new survey is, and click accept
+X I should be able to click a button to create a new survey
+X I should be asked what the name and type of the new survey is, and click accept
 - If I don’t put in a name I should get an error message
-- If I put in a name I should get a success message and be taken back to the list of surveys I’ve created
+X If I put in a name I should get a success message and be taken back to the list of surveys I’ve created
 
 As a Tech Collective Administrator
 I want to be able to view a list of surveys I’ve created
@@ -42,7 +42,7 @@ So I can keep track of them
 Acceptance Criteria:
 
 - I should be able to see icons for each survey created
-- I should be able to see their names underneath each one
+X I should be able to see their names underneath each one
 - they should be grouped by type
 
 As a Tech Collective Administrator
@@ -51,7 +51,14 @@ So I can see what questions are on it, and edit it further
 
 Acceptance Criteria:
 
-- I should be able to double click on a survey and be taken to that surveys page
+- I should be able to click on a survey and be taken to that surveys page
+- I should not be able to see an edit link if I'm not signed in
+- I should see an error if I'm not signed in and I'm visiting the edit path
+- I should see a message if I'm successful editing a survey
+- I should be able to edit other admins surveys
+
+
+
 
 As a Tech Collective Administrator
 I want to be able to create a question

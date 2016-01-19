@@ -5,8 +5,11 @@
     - @surveys.each do |survey|
       = link_to survey_path(survey) do
         .survey
+        - if survey.publish == true || admin_signed_in?
           %p.survey-title= survey.title
+          %p.survey-group= survey.group
 
+    %hr.line
 
   - else
-    %h2 No Surveys Created
+    %h2 No results found
