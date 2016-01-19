@@ -52,7 +52,12 @@ So I can see what questions are on it, and edit it further
 Acceptance Criteria:
 
 - I should be able to click on a survey and be taken to that surveys page
--
+- I should not be able to see an edit link if I'm not signed in
+- I should see an error if I'm not signed in and I'm visiting the edit path
+- I should see a message if I'm successful editing a survey
+- I should be able to edit other admins surveys
+
+
 
 
 As a Tech Collective Administrator

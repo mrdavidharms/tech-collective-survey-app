@@ -15,7 +15,7 @@ feature "admin adds surveys", %{
   - If I put in a name I should get a success message and be taken back to the list of surveys I’ve created
 } do
   context "non signed in user" do
-    scenario "cannot see page to create survey" do  
+    scenario "cannot see page to create survey" do
       visit new_survey_path
       expect(page).to_not have_content "Sign in to create a survey"
     end
