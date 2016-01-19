@@ -43,11 +43,12 @@ ActiveRecord::Schema.define(version: 20160118191219) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string   "title",                      null: false
     t.string   "group"
-    t.integer  "admin_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "publish",    default: false
+    t.integer  "admin_id",                   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end

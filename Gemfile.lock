@@ -70,6 +70,9 @@ GEM
     execjs (2.6.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     foundation-rails (5.5.3.2)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -215,7 +218,7 @@ DEPENDENCIES
   capybara
   coveralls
   devise
-  factory_girl
+  factory_girl_rails
   foundation-rails
   haml
   jquery-rails

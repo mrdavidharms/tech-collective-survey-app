@@ -12,7 +12,7 @@ gem 'foundation-rails'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'pry-rails'
   gem 'shoulda'

@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 feature "admin edits a survey" do
   let(:admin) { FactoryGirl.create(:admin) }
   let!(:survey) { FactoryGirl.create(:survey, admin: admin) }
@@ -36,23 +38,28 @@ feature "admin edits a survey" do
 
       expect(page).to have_content "Tech Force"
       expect(page).to have_content "Kids"
+      expect(page).to have_content "Survey edited successfully"
+
     end
 
     context "signed in user tries to edit someone elses piece" do
       let(:admin2) { FactoryGirl.create(:admin) }
 
       before do
+        sign_out
         sign_in_as(admin2)
+        visit survey_path(survey)
+        click_link "Edit"
       end
-      scenario "signed in admin tries to edit other admins survey" do
-        context "admin can edit other admins survey" do
-          visit survey_path(survey)
+      context "signed in admin tries to edit other admins survey" do
+        scenario "admin can edit other admins survey" do
+
           fill_in 'Title', with: "Blardggg"
           fill_in 'Group', with: "Badadminss"
           click_button "Edit"
-          expect(page).to have_content("Edit")
+
           expect(page).to have_content("Blardggg")
-          expect(page).to_not have_content(survey.title)
+          expect(page).to have_content("Survey edited successfully")
         end
       end
     end

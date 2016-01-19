@@ -51,7 +51,9 @@ So I can see what questions are on it, and edit it further
 
 Acceptance Criteria:
 
-- I should be able to double click on a survey and be taken to that surveys page
+- I should be able to click on a survey and be taken to that surveys page
+-
+
 
 As a Tech Collective Administrator
 I want to be able to create a question

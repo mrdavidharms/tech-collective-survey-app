@@ -1,6 +1,7 @@
 class SurveysController < ApplicationController
   before_action :authorize_admin, except: [:index, :show]
 
+
   def index
     @surveys = Survey.all
   end
@@ -28,6 +29,19 @@ class SurveysController < ApplicationController
   def edit
   @survey = Survey.find(params[:id])
   end
+
+  def update
+    @survey = Survey.find(params[:id])
+
+    if @survey.update_attributes(survey_params)
+      flash[:notice] = "Survey edited successfully"
+      redirect_to root_path
+    else
+      flash[:errors] = @survey.errors.full_messages.join(". ")
+      render :edit
+    end
+  end
+
   protected
 
   def survey_params
@@ -36,6 +50,7 @@ class SurveysController < ApplicationController
 
   def authorize_admin
     if !admin_signed_in?
+      flash[:notice] = "You need to sign in or sign up before continuing."
       redirect_to root_path
     end
   end
