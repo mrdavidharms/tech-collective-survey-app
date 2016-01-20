@@ -1,9 +1,10 @@
 class Questions < ActiveRecord::Migration
   def change
-    change_table :questions do |t|
+    create_table :questions do |t|
       t.boolean :rating
       t.boolean :multiple_choice
       t.boolean :required?
+      t.string :body
       t.belongs_to :survey, null: false
 
       t.timestamps

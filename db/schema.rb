@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20160118191219) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "body",            null: false
     t.boolean  "rating"
     t.boolean  "multiple_choice"
     t.boolean  "required?"
+    t.string   "body"
     t.integer  "survey_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
