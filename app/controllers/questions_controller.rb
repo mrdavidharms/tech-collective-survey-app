@@ -1,14 +1,14 @@
 class QuestionsController < ApplicationController
-before_action :authorize_admin, except: [:index, :show]
-before_action :survey, only: []
+  before_action :authorize_admin, except: [:index, :show]
+  before_action :survey, only: []
 
   def new
     @question = Question.new
   end
 
   def create
-      survey = Survey.find(params[:survey_id])
-      @question = survey.questions.new(question_params)
+    survey = Survey.find(params[:survey_id])
+    @question = survey.questions.new(question_params)
     if @question.save
       flash[:notice] = 'Your question has been successfully added.'
       redirect_to survey_path(survey)

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :surveys
 
   resources :surveys do
-  resources :questions
-end
+    resources :questions
+  end
   root "surveys#index"
 end
