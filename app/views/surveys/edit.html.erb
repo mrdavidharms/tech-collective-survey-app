@@ -1,0 +1,20 @@
+<h1>Edit Survey</h1>
+<%= form_for(@survey) do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.label :group %>
+    <%= f.text_field :group, placeholder: "Survey For" %>
+  </div>
+  <div class="actions"></div>
+  <%= f.submit "Edit" %>
+<% end %>
+<div>
+  
+</div>
+
+<div>
+  <%= link_to 'Back', surveys_path %>
+</div>

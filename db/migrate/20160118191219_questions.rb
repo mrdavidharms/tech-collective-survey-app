@@ -4,7 +4,7 @@ class Questions < ActiveRecord::Migration
       t.boolean :rating
       t.boolean :multiple_choice
       t.boolean :required?
-      t.string :body
+      t.string :body, null: false
       t.belongs_to :survey, null: false
 
       t.timestamps
