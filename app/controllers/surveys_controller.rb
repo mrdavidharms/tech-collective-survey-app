@@ -7,6 +7,8 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
+    @question = Question.new
+    @questions = @survey.questions
   end
 
   def new
@@ -31,7 +33,6 @@ class SurveysController < ApplicationController
 
   def update
     @survey = Survey.find(params[:id])
-
     if @survey.update_attributes(survey_params)
       flash[:notice] = "Survey edited successfully"
       redirect_to root_path

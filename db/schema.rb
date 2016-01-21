@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160118191219) do
     t.boolean  "rating"
     t.boolean  "multiple_choice"
     t.boolean  "required?"
-    t.string   "body"
+    t.string   "body",            null: false
     t.integer  "survey_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"

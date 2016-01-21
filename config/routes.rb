@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   resources :admins
   resources :surveys
 
+  resources :surveys do
+    resources :questions
+  end
   root "surveys#index"
 end

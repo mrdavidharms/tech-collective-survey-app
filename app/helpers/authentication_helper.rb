@@ -12,4 +12,11 @@ module AuthenticationHelper
   def sign_out
     click_link "Sign Out"
   end
+
+  def authorize_admin
+    if !admin_signed_in?
+      flash[:notice] = "You need to sign in or sign up before continuing."
+      redirect_to root_path
+    end
+  end
 end

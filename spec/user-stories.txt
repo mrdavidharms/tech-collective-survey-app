@@ -32,7 +32,7 @@ Acceptance Criteria:
 
 X I should be able to click a button to create a new survey
 X I should be asked what the name and type of the new survey is, and click accept
-- If I don’t put in a name I should get an error message
+X If I don’t put in a name I should get an error message
 X If I put in a name I should get a success message and be taken back to the list of surveys I’ve created
 
 As a Tech Collective Administrator
@@ -51,14 +51,11 @@ So I can see what questions are on it, and edit it further
 
 Acceptance Criteria:
 
-- I should be able to click on a survey and be taken to that surveys page
-- I should not be able to see an edit link if I'm not signed in
-- I should see an error if I'm not signed in and I'm visiting the edit path
-- I should see a message if I'm successful editing a survey
-- I should be able to edit other admins surveys
-
-
-
+X I should be able to click on a survey and be taken to that surveys page
+X I should not be able to see an edit link if I'm not signed in
+X I should see an error if I'm not signed in and I'm visiting the edit path
+X I should see a message if I'm successful editing a survey
+X I should be able to edit other admins surveys
 
 As a Tech Collective Administrator
 I want to be able to create a question
@@ -66,26 +63,13 @@ So I can add it to a survey
 
 Acceptance Criteria:
 
-- I must fill in the text field, if it’s blank, I will see an error.
-- I have to pick between having the student use 3 different types of answers, rating, text, or multiple choice.
+X I must fill in the text field, if it’s blank, I will see an error.
+X I have to pick between having the survey using 3 different types of answers, rating, text, or multiple choice.
 - If I do not specify which of the three answers I want, I will see an error.
-- If I do not specify what text I want, I will see an error.
-- If one is picked and the text is entered there the survey question will be saved.
+X If one is picked and the text is entered there the survey question will be saved.
 - I should be able to see the question on the survey index page
 
-As a Tech Collective Administrator
-I want to be able to leave the question page
-So I can return to the survey it belongs to
 
-Acceptance Criteria:
-
-- I should be able to see an X in the top right corner of the page
-- I should be able to click an X on the top right corner.
-- If there is no text present I should be taken to the survey page
-- If there is text present in the survey and the X is clicked, I should see a text asking me if I want to save the question
-- The text should have a yes button and a no button
--If I click ‘yes’ it should save what is present and return me to the survey page.
--If I click ‘no’ it should return me to the survey page without saving
 
 As a Tech Collective Administrator
 I want to be able to see all the surveys completed
@@ -103,6 +87,48 @@ and submit it
 Acceptance Criteria:
 
 -all fields should be filled in that are required
--a user should only be able to see the surveys on the survey index page marked for view   
+-a user should only be able to see the surveys on the survey index page marked for view
 -if a field isn’t filled in that’s required the teacher should see an error message
 -they should be able to submit with a button
+
+As a Tech Collective Administrator
+I want to be able to create a multiple choice question
+So I can add it to a survey
+
+As a Tech Collective Administrator
+I want to be able to leave the question page
+So I can return to the survey it belongs to
+
+Acceptance Criteria:
+
+- I should be able to see an X in the top right corner of the page
+- I should be able to click an X on the top right corner.
+- If there is no text present I should be taken to the survey page
+- If there is text present in the survey and the X is clicked, I should see a text asking me if I want to save the question
+- The text should have a yes button and a no button
+-If I click ‘yes’ it should save what is present and return me to the survey page.
+-If I click ‘no’ it should return me to the survey page without saving
+
+Acceptance Criteria:
+
+-I should be able to click multiple choice and be presented with 6 new fields
+-Each field should be labeled A through F
+-If none are filled out I should be presented with an error
+-If only one is filled out I should be presented with an errors
+-I should be able to save it and see it on the survey page
+-The three answers should be underneath the question and have a check mark next to each one
+
+As a Tech Collective Administrator
+I want to be able to create a question that has a rating attached
+So I can add it to a survey
+
+-I should be able to pick between add rating and rating only
+-If I pick add rating I should see a radio collection for 1-5, next to the question added
+-If I pick rating only, I should see only the rating
+-If I pick add rating and have a blank question I should see an error
+
+As a Tech Collective Administrator
+I want to be able to create a question that is required
+So I can add it to a survey
+
+-If I mark the question as required, it should be required on the answer field

@@ -1,3 +1,2 @@
-%h1 Add a New Survey
-%div.review-container= render 'form'
-%div= link_to 'Back', surveys_path
+- provide(:title, 'New')
+= render 'form'

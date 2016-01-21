@@ -42,7 +42,7 @@ feature "admin edits a survey" do
 
     end
 
-    context "signed in user tries to edit someone elses piece" do
+    context "signed in admin tries to edit other admins survey" do
       let(:admin2) { FactoryGirl.create(:admin) }
 
       before do
@@ -51,16 +51,15 @@ feature "admin edits a survey" do
         visit survey_path(survey)
         click_link "Edit"
       end
-      context "signed in admin tries to edit other admins survey" do
-        scenario "admin can edit other admins survey" do
 
-          fill_in 'Title', with: "Blardggg"
-          fill_in 'Group', with: "Badadminss"
-          click_button "Edit"
+      scenario "admin can edit other admins survey" do
 
-          expect(page).to have_content("Blardggg")
-          expect(page).to have_content("Survey edited successfully")
-        end
+        fill_in 'Title', with: "Blardggg"
+        fill_in 'Group', with: "Badadminss"
+        click_button "Edit"
+
+        expect(page).to have_content("Blardggg")
+        expect(page).to have_content("Survey edited successfully")
       end
     end
     scenario "admin does not fill in correct information" do
