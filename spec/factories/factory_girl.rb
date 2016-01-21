@@ -11,4 +11,14 @@ FactoryGirl.define do
     title "Grrl Tech"
     group "Students"
   end
+
+  factory :user_survey, class: Survey do
+    title "Grrl Tech"
+    group "Students"
+    publish true
+  end
+
+  factory :question do
+    body "How did you feel about this event?"
+  end
 end

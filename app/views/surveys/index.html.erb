@@ -27,9 +27,6 @@
   <div class="surveys">
     <% if !@surveys.empty? %>
       <% @surveys.each do |survey| %>
-      <button class="hollow button" href="#">Primary Color
-
-
         <%= link_to survey_path(survey) do %>
           <div class="survey"></div>
           <% if survey.publish == true || admin_signed_in? %>
@@ -38,8 +35,6 @@
             </p>
             <p class="survey-group">
               <%= survey.group %>
-              </button>
-
             </p>
             </div>
           <% end %>
@@ -55,36 +50,6 @@
 
 </div>
 </div>
-<hr>
-<div class="row">
-<div class="medium-6 columns">
-<h3>Contact Me</h3>
-<p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor.</p>
-<ul class="menu">
-<li><a href="#">Dribbble</a></li>
-<li><a href="#">Facebook</a></li>
-<li><a href="#">Yo</a></li>
-</ul>
-</div>
-<div class="medium-6 columns">
-<label>Name
-<input type="text" placeholder="Name">
-</label>
-<label>Email
-<input type="text" placeholder="Email">
-</label>
-<label>
-Message
-<textarea placeholder="holla at a designerd"></textarea>
-</label>
-<button class="button expanded">Submit</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
 <script>
       $(document).foundation();
     </script>
