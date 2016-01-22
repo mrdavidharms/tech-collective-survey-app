@@ -77,10 +77,10 @@ So users can see them when they visit my home page
 
 Acceptance Criteria:
 
--I should be able to see publish option on the new survey page
--I should be able to see a publish option on the edit survey page
+X I should be able to see publish option on the new survey page
+X I should be able to see a publish option on the edit survey page
 -If published they should be first on the list and with a different background
--If published an unsigned in user should be able to see them
+X If published an unsigned in user should be able to see them
 
 
 As a Tech Collective Administrator

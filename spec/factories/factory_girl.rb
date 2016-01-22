@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :user_survey, class: Survey do
-    title "Grrl Tech"
+    title "Finished survey"
     group "Students"
     publish true
   end

@@ -7,5 +7,14 @@
     = f.label :group
     = f.text_field :group, placeholder: "Survey For"
 
+  %div.survey-form-title
+    = f.radio_button :publish, false
+    = f.label :publish, "Hidden", value: false
+    = f.radio_button :publish, true
+    = f.label :publish, "Publish", value: true
+
+
+
+
   .form-actions
     = f.button "Add Survey"
