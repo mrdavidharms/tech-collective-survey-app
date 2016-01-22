@@ -72,6 +72,18 @@ X If one is picked and the text is entered there the survey question will be sav
 
 
 As a Tech Collective Administrator
+I want to be able to pick publish a survey when creating or editing it
+So users can see them when they visit my home page
+
+Acceptance Criteria:
+
+-I should be able to see publish option on the new survey page
+-I should be able to see a publish option on the edit survey page
+-If published they should be first on the list and with a different background
+-If published an unsigned in user should be able to see them
+
+
+As a Tech Collective Administrator
 I want to be able to see all the surveys completed
 So I can peruse them
 
