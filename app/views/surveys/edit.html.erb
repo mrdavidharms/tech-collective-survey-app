@@ -8,11 +8,18 @@
     <%= f.label :group %>
     <%= f.text_field :group, placeholder: "Survey For" %>
   </div>
+  <div>
+
+    <%= f.radio_button :publish, false %>
+    <%= f.label :publish, "Hidden", value: false %>
+    <%= f.radio_button :publish, true %>
+    <%= f.label :publish, "Publish", value: true %>
+  </div>
   <div class="actions"></div>
   <%= f.submit "Edit" %>
 <% end %>
 <div>
-  
+
 </div>
 
 <div>
