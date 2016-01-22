@@ -39,7 +39,17 @@ feature "admin edits a survey" do
       expect(page).to have_content "Tech Force"
       expect(page).to have_content "Kids"
       expect(page).to have_content "Survey edited successfully"
+    end
 
+    scenario 'admin edits a survey to publish' do
+      fill_in 'Title', with: "Published Tech Force"
+      fill_in 'Group', with: "Published Kids"
+      choose 'survey_publish_true'
+
+      click_button 'Edit'
+
+      expect(page).to have_content "Survey edited successfully"
+      expect(page).to have_content "Published Tech Force"
     end
 
     context "signed in admin tries to edit other admins survey" do

@@ -19,19 +19,21 @@ feature 'survey publish function' do
       visit new_survey_path
       fill_in 'Title', with: "Published survey"
       fill_in 'Group', with: "Group for people"
-      choose 'Publish'
+      choose 'survey_publish_true'
       click_button 'Add Survey'
 
       expect(page).to have_content "Survey Added Successfully"
       expect(page).to have_content "Published survey"
+      expect(page).to have_content "Group for people"
+
     end
 
     context 'non signed in user' do
       scenario 'user can see published survey on front page' do
         sign_out
-        user_survey = FactoryGirl.create(:survey, title: "published", admin: admin, publish: true )
+        published_survey = FactoryGirl.create(:survey, title: "publisheddooss", admin: admin, publish: true )
         visit root_path
-        expect(page).to have_content(user_survey.title)
+        expect(page).to have_content(published_survey.title)
         expect(page).to_not have_content(survey.title)
       end
     end

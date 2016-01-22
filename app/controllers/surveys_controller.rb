@@ -45,7 +45,7 @@ class SurveysController < ApplicationController
   protected
 
   def survey_params
-    params.require(:survey).permit(:title, :group)
+    params.require(:survey).permit(:title, :group, :publish)
   end
 
   def authorize_admin
