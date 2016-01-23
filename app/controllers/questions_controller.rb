@@ -21,9 +21,20 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @survey = Survey.find(params[:survey_id])
+     @question = @survey.questions.find(params[:id])
   end
 
   def update
+    @survey = Survey.find(params[:survey_id])
+    @question = @survey.questions.find(params[:id])
+    if @question.update_attributes(question_params)
+      flash[:notice] = "Question edited successfully"
+      redirect_to survey_path(survey)
+    else
+      flash[:errors] = @question.errors.full_messages.join(". ")
+      render :edit
+    end
   end
 
   def destroy

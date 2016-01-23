@@ -1,0 +1,23 @@
+<%= 'edit question' %>
+
+<%= form_for [@survey, @question] do |f| %>
+  <div class="survey-form-title">
+    <%= f.label :body %>
+    <%= f.text_field :body, placeholder: "Body" %>
+  </div>
+  <div class="survey-form-rating">
+    <%= f.label :rating %>
+    <%= f.button :rating, placeholder: "rating" %>
+  </div>
+  <div class="multiple-choice">
+    <%= f.label :multiple_choice %>
+    <%= f.button "multiple choice", placeholder: "multiple choice" %>
+  </div>
+  <div class="survey-form-required">
+    <%= f.label :required %>
+    <%= f.button :required, placeholder: "required" %>
+  </div>
+  <div class="form-actions">
+    <%= f.button "submit edit" %>
+  </div>
+<% end %>

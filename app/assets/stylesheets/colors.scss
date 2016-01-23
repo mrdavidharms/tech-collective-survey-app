@@ -1,0 +1,9 @@
+$green: #94b24d;
+$light-green: #d3ff82;
+$blue: #363d52;
+$light-blue: scale-color($blue, $lightness: +10%);
+$lighter-blue: scale-color($blue, $lightness: +30%);
+$dark-blue: #121d2b;
+$black: #000000;
+$lighter-black: scale-color($black, $lightness: +10%);
+$red: #f00;
