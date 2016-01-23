@@ -21,13 +21,9 @@ feature "admin edits a question" do
       visit survey_path(survey)
       click_link "Edit Question"
     end
-
     scenario "signed in admin sucessfully edits question" do
 
-      expect(page).to have_content "submit edit"
-
-      fill_in 'body', with: "Ya but how do you really feel about it?"
-
+      fill_in 'Body', with: "Ya but how do you really feel about it?"
       click_button "submit edit"
 
       expect(page).to have_content "Ya but how do you really feel about it?"
@@ -41,22 +37,22 @@ feature "admin edits a question" do
         sign_out
         sign_in_as(admin2)
         visit survey_path(survey)
-        click_link "edit question"
+        click_link "Edit Question"
       end
 
       scenario "admin can edit other admins survey" do
 
-        fill_in 'body', with: "Blardggg"
-        click_button "edit question"
+        fill_in 'Body', with: "Blardggg"
+        click_button "submit edit"
 
         expect(page).to have_content("Blardggg")
-        expect(page).to have_content("question edited successfully")
+        expect(page).to have_content("Question edited successfully")
       end
     end
     scenario "admin does not fill in correct information" do
-      fill_in 'body', with: ""
+      fill_in 'Body', with: ""
 
-      click_button "edit question"
+      click_button "submit edit"
       expect(page).to have_content "Body can't be blank"
     end
   end
