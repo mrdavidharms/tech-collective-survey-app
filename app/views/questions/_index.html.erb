@@ -1,0 +1,14 @@
+<% @questions.each do |question| %>
+
+  <tr>
+    <td><%= question.body %></td>
+  </tr>
+    <div class="row">
+      <p>
+        <%= link_to "Add Question", new_survey_question_path(@survey, @question) %>
+        <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
+        <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
+      </p>
+    </div>
+<% end %>
+<%= render 'questions/new' %>
