@@ -5,17 +5,19 @@
     <%= f.label :body %>
     <%= f.text_field :body, placeholder: "Body" %>
   </div>
-  <div class="survey-form-rating">
-    <%= f.label :rating %>
-    <%= f.button :rating, placeholder: "rating" %>
-  </div>
-  <div class="multiple-choice">
-    <%= f.label :multiple_choice %>
-    <%= f.button "multiple choice", placeholder: "multiple choice" %>
-  </div>
-  <div class="survey-form-required">
-    <%= f.label :required %>
-    <%= f.button :required, placeholder: "required" %>
+  <div class="question-form-row">
+    <div class="survey-form-rating">
+      <%= f.label :rating %>
+      <%= f.check_box :rating, name: "rating", value: "True"%>
+    </div>
+    <div class="multiple-choice">
+      <%= f.label :multiple_choice %>
+        <%= f.check_box :multiple_choice, name: "multiple choice", value: "True"%>
+    </div>
+    <div class="survey-form-required">
+      <%= f.label :required? %>
+      <%= f.check_box :required?, name: "required", value: "True"%>
+    </div>
   </div>
   <div class="form-actions">
     <%= f.button "Add Question" %>

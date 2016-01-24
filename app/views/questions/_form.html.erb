@@ -1,11 +1,11 @@
 <%= form_for [@survey, @question] do |f| %>
   <div class="survey-form-title">
-    <%= f.label :body %>
+    <%= f.label :Body %>
     <%= f.text_field :body, placeholder: "Body" %>
   </div>
   <div class="survey-form-rating">
-    <%= f.label :rating %>
-    <%= f.button :rating, placeholder: "rating" %>
+    <%= f.label :Rating %>
+    <%= f.check_box :rating, "true", "false" %>
   </div>
   <div class="multiple-choice">
     <%= f.label :multiple_choice %>
