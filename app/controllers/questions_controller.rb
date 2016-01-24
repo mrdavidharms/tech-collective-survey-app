@@ -53,6 +53,10 @@ class QuestionsController < ApplicationController
     @survey ||= Survey.find(params[:survey_id])
   end
 
+  def question
+    @question ||= Question.find(params[:id])
+  end
+
   def authorize_admin
     if !admin_signed_in?
       flash[:notice] = "You need to sign in or sign up before continuing."
