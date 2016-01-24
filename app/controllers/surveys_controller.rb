@@ -42,10 +42,20 @@ class SurveysController < ApplicationController
     end
   end
 
+  def destroy
+    survey.destroy
+    flash[:success] = "Survey Deleted"
+    redirect_to root_path
+  end
+
   protected
 
   def survey_params
     params.require(:survey).permit(:title, :group, :publish)
+  end
+
+  def survey
+    @survey ||= Survey.find(params[:id])
   end
 
   def authorize_admin

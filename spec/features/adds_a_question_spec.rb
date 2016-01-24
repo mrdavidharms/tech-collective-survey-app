@@ -19,11 +19,11 @@ feature "admins can add a new question for a survey" do
 
     scenario "admin can see add question button with options next to it" do
       visit survey_path(survey)
-  
+
       expect(page).to have_content 'Add Question'
-      expect(page).to have_content 'rating'
-      expect(page).to have_content 'multiple choice'
-      expect(page).to have_content 'required'
+      expect(page).to have_content 'Rating'
+      expect(page).to have_content 'Multiple choice'
+      expect(page).to have_content 'Required?'
     end
 
     scenario "admin adds tries to add a blank question" do
