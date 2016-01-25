@@ -6,9 +6,13 @@ class SurveysController < ApplicationController
   end
 
   def show
+
     @survey = Survey.find(params[:id])
     @question = Question.new
     @questions = @survey.questions
+    @answer = Answer.new
+    @answers = @question.answers
+    binding.pry
   end
 
   def new

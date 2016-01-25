@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118191219) do
+ActiveRecord::Schema.define(version: 20160125190732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,12 +32,27 @@ ActiveRecord::Schema.define(version: 20160118191219) do
     t.datetime "updated_at",                          null: false
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.string   "answer"
+    t.string   "rating_answer"
+    t.string   "selection"
+    t.integer  "question_id",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.boolean  "rating"
     t.boolean  "multiple_choice"
+    t.string   "multiple_choice_1"
+    t.string   "multiple_choice_2"
+    t.string   "multiple_choice_3"
+    t.string   "multiple_choice_4"
+    t.string   "multiple_choice_5"
     t.boolean  "required?"
-    t.string   "body",            null: false
-    t.integer  "survey_id",       null: false
+    t.boolean  "text?"
+    t.string   "body",              null: false
+    t.integer  "survey_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

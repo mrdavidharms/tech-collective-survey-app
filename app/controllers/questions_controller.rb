@@ -6,6 +6,10 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def index
+    @questions = Question.all
+  end
+
   def create
     survey = Survey.find(params[:survey_id])
     @question = survey.questions.new(question_params)

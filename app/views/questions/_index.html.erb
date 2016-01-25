@@ -1,4 +1,6 @@
-<% @questions.each do |question| %>
+
+<% if admin_signed_in?%>
+  <% @questions.each do |question| %>
 
   <tr>
     <td><%= question.body %></td>
@@ -10,5 +12,8 @@
         <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
       </p>
     </div>
-<% end %>
-<%= render 'questions/new' %>
+    <%= render 'questions/new' %>
+  <% end %>
+
+<% else render 'answers/user'%>
+<% end%>
