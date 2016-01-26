@@ -1,15 +1,21 @@
 class AnswersController < ApplicationController
-  before_action :authorize_admin, except: [:create, :show]
+  before_action :authorize_admin, except: [:create]
 
   def new
-    binding.pry
+    @question = Question.find(params[:question_id])
     @answer = Answer.new
   end
 
-  def index
+  def show
+    binding.pry
+
     @question = Question.find(params[:question_id])
+    @answer = question.answers.new(answer_params)
+  end
+
+  def index
+    @questions = Question.find(params[:question_id])
     @answers = @question.answers
-    @answer = Answer.all
   end
 
   def create

@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authorize_admin, except: [:index, :show]
-  before_action :survey, only: []
+  before_action :survey
 
   def new
     @question = Question.new

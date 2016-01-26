@@ -1,4 +1,6 @@
-<% if admin_signed_in? %>
+<% if @survey.publish == true %>
+<% redirect_to 'answer' %>
+<% else admin_signed_in? %>
   <p>
     <%= "Added by #{@survey.admin.name}" %>
     <%= "Survey Title: #{@survey.title}"%>
@@ -13,8 +15,7 @@
    <p>
     <%= link_to "Delete Survey", @survey, method: :delete %>
   </p>
-<% else %>
-<%= render 'questions/index'%>
+
 
 
 <% end %>
