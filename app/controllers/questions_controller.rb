@@ -7,7 +7,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    survey = Survey.find(params[:survey_id])
+    @questions = survey.questions
   end
 
   def create

@@ -14,12 +14,17 @@ feature 'Admin makes a question using rating function' do
       check "question_rating"
       click_button 'Add Question'
 
-
       expect(page).to have_content "Your question has been successfully added"
       expect(page).to have_content "On a scale of 1-10 what do you think?"
-      save_and_open_page
+    end
+    scenario "admin previews survey" do
+      visit survey_questions_path(survey1)
+      click_link "Preview Survey"
 
+      expect(page).to have_content question4.body
       expect(page).to have_content "Rating"
+      expect(page).to have_content "1"
+      expect(page).to have_content "10"
     end
   end
 end
