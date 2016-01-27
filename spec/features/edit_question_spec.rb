@@ -18,7 +18,7 @@ feature "admin edits a question" do
   context "signed in admin edits survey" do
     before do
       sign_in_as(admin)
-      visit survey_path(survey)
+      visit survey_questions_path(survey)
       click_link "Edit Question"
     end
     scenario "signed in admin sucessfully edits question" do
@@ -36,7 +36,7 @@ feature "admin edits a question" do
       before do
         sign_out
         sign_in_as(admin2)
-        visit survey_path(survey)
+        visit survey_questions_path(survey)
         click_link "Edit Question"
       end
 

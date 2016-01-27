@@ -9,7 +9,7 @@
 <div class="row small-up-2 medium-up-3 large-up-4">
 <div class="column">
   <div class="surveys">
-    <% if !@surveys.empty? %>
+    <% if !@surveys.nil? %>
       <% @surveys.each do |survey| %>
         <%= link_to survey_path(survey) do %>
           <div class="survey"></div>

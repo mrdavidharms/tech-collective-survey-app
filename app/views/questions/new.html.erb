@@ -1,21 +1,2 @@
 
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.body %></td>
-    <td> </td>
-  </tr>
-<% end %>
-
-
-<% unless current_admin.nil? %>
-  <div class="links">
-    <p>
-      <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
-    </p>
-    <p>
-      <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
-    </p>
-  </div>
-
-<% else link_to "New Question", new_survey_question_path(@survey, @question) %>
-<% end %>
+<%= render 'form' %>

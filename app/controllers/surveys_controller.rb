@@ -7,8 +7,10 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
-    @question = Question.new
-    @questions = @survey.questions
+    if @survey.publish == true
+      @questions = @survey.questions
+      @answers = @survey.answers
+    end
   end
 
   def new

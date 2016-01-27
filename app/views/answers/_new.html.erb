@@ -1,0 +1,28 @@
+
+  <tr>
+  <% binding.pry%>
+  <% form_for [@question, @answer] do |f| %>
+    <% @questions.each do |question| %>
+      <% if @question.text? == true %>
+        <div class="survey-form-title">
+        <%= "#{question.body}" %>
+        <%= f.label :answer_body %>
+        <%= f.text_field :answer_body, placeholder: "Answer" %>
+        <div class="form-actions">
+        <%= f.button "Submit" %>
+      </div>
+      <% end %>
+    <% end%>
+  <% end %>
+    <br>
+  </tr>
+  <% if admin_signed_in? %>
+    <div class="row">
+      <p>
+        <%= link_to "Add Question", new_survey_question_path(@survey, @question) %>
+        <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
+        <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
+      </p>
+    </div>
+  <%= render 'questions/new' %>
+  <% end %>

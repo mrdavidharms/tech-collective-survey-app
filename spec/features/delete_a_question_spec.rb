@@ -8,7 +8,7 @@ feature 'admin deletes a question' do
 
     before do
       sign_in_as(admin)
-      visit survey_path(survey)
+      visit survey_questions_path(survey)
     end
 
     scenario "admin sees delete button for question" do

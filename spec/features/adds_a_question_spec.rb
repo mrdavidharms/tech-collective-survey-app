@@ -20,14 +20,20 @@ feature "admins can add a new question for a survey" do
     scenario "admin can see add question button with options next to it" do
       visit survey_path(survey)
 
+      expect(page).to have_content 'New Question'
+    end
+    scenario "admin can see options for creating a question" do
+      visit new_survey_question_path(survey)
+
       expect(page).to have_content 'Add Question'
       expect(page).to have_content 'Rating'
       expect(page).to have_content 'Multiple choice'
       expect(page).to have_content 'Required?'
+
     end
 
     scenario "admin adds tries to add a blank question" do
-      visit survey_path(survey)
+      visit new_survey_question_path(survey)
       fill_in 'Body', with: ""
       click_button 'Add Question'
 
@@ -36,7 +42,7 @@ feature "admins can add a new question for a survey" do
     end
 
     scenario "admin adds a new question successfully" do
-      visit survey_path(survey)
+      visit new_survey_question_path(survey)
       fill_in 'Body', with: "what do you think?"
       click_button 'Add Question'
 
@@ -45,7 +51,7 @@ feature "admins can add a new question for a survey" do
     end
 
     scenario "admin adds a new question with rating successfully" do
-      visit survey_path(survey)
+      visit new_survey_question_path(survey)
       fill_in 'Body', with: "what do you really think?"
       click_button 'Add Question'
 
