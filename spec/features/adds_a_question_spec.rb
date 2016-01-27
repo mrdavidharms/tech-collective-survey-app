@@ -29,7 +29,6 @@ feature "admins can add a new question for a survey" do
       expect(page).to have_content 'Rating'
       expect(page).to have_content 'Multiple choice'
       expect(page).to have_content 'Required?'
-
     end
 
     scenario "admin adds tries to add a blank question" do
@@ -48,15 +47,6 @@ feature "admins can add a new question for a survey" do
 
       expect(page).to have_content "Your question has been successfully added"
       expect(page).to have_content "what do you think?"
-    end
-
-    scenario "admin adds a new question with rating successfully" do
-      visit new_survey_question_path(survey)
-      fill_in 'Body', with: "what do you really think?"
-      click_button 'Add Question'
-
-      expect(page).to have_content "Your question has been successfully added"
-      expect(page).to have_content "what do you really think"
     end
   end
 end
