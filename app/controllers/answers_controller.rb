@@ -1,33 +1,32 @@
 class AnswersController < ApplicationController
-  before_action :authorize_admin, except: [:create]
+  before_action :authorize_admin, except: [:new, :create]
 
   def new
-    @question = Question.find(params[:question_id])
+
+    @survey = Survey.find(params[:survey_id])
+    @questions = @survey.questions
     @answer = Answer.new
   end
 
   def show
-    binding.pry
-
-    @question = Question.find(params[:question_id])
-    @answer = question.answers.new(answer_params)
+    @survey = Survey.find(params[:survey_id])
+    @answer = survey.answers.new(answer_params)
   end
 
   def index
-    @questions = Question.find(params[:question_id])
-    @answers = @question.answers
+    @surveys = Survey.find(params[:survey_id])
+    @answers = @survey.answers
   end
 
   def create
-    question = Question.find(params[:question_id])
-
-    @answer = question.answers.new(answer_params)
+    survey = Survey.find(params[:survey_id])
+    @answer = survey.answers.new(answer_params)
     if @answer.save
       flash[:notice] = 'Thank you for taking our survey!'
-      redirect_to question_path(question)
+      redirect_to survey_path(survey)
     else
-      @question = Question.find(@answer.question_id)
-      @answers = @question.answers
+      @survey = Survey.find(@answer.survey_id)
+      @answers = @survey.answers
       flash[:notice] = @answer.errors.full_messages.join(". ")
       render :'answers/user'
     end
@@ -41,9 +40,11 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:answer, :selection, :rating_answer )
   end
 
-  def question
-    @question ||= Question.find(params[:question_id])
+  def survey
+    @survey ||= Survey.find(params[:survey_id])
   end
+
+
 
   def answer
     @answer ||= Answer.find(params[:id])

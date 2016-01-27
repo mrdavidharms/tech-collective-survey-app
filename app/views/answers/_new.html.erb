@@ -8,15 +8,12 @@
         <%= "#{question.body}" %>
         <%= f.label :answer_body %>
         <%= f.text_field :answer_body, placeholder: "Answer" %>
-      <div class="form-actions">
+        <div class="form-actions">
         <%= f.button "Submit" %>
       </div>
       <% end %>
     <% end%>
   <% end %>
-
-
-
     <br>
   </tr>
   <% if admin_signed_in? %>
@@ -27,6 +24,5 @@
         <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
       </p>
     </div>
-
   <%= render 'questions/new' %>
   <% end %>

@@ -1,29 +1,27 @@
 
   <tr>
-  <% form_for [@question, @answer] do |f| %>
+
+  <%= form_for [@survey, @answer] do |f| %>
     <% @questions.each do |question| %>
-      <% if @question.text? == true %>
+      <% if question.text? == true %>
         <div class="survey-form-title">
         <%= "#{question.body}" %>
-        <%= f.label :answer_body %>
-        <%= f.text_field :answer_body, placeholder: "Answer" %>
+        <%= f.label :answer %>
+        <%= f.text_field :answer, placeholder: "Answer" %>
       <div class="form-actions">
-        <%= f.button "Submit" %>
+        <%= f.button "Next Question" %>
       </div>
       <% end %>
     <% end%>
   <% end %>
-
     <br>
   </tr>
   <% if admin_signed_in? %>
     <div class="row">
       <p>
-        <%= link_to "Add Question", new_survey_question_path(@survey, @question) %>
-        <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
-        <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
+        <%= link_to "Add Survey", new_survey_survey_path(@survey, @survey) %>
+        <%= link_to "Edit Survey", edit_survey_survey_path(@survey, survey) %>
+        <%= link_to "Delete Survey", survey_survey_path(@survey, survey), method: :delete %>
       </p>
     </div>
-
-  <%= render 'questions/new' %>
-  <% end %>
+    <% end %>

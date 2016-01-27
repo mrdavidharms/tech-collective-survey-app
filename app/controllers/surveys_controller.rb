@@ -9,6 +9,7 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
     if @survey.publish == true
       @questions = @survey.questions
+      @answers = @survey.answers
     end
   end
 

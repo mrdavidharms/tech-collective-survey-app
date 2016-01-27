@@ -4,7 +4,7 @@ class Answers < ActiveRecord::Migration
       t.string :answer
       t.string :rating_answer
       t.string :selection
-      t.belongs_to :question, null: false
+      t.belongs_to :survey, null: false
 
       t.timestamps
     end
