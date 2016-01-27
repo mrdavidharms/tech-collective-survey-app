@@ -24,13 +24,14 @@ feature "user answers a question" do
       click_link other_survey.group
       click_link 'Take Survey'
     end
-    scenario "user clicks on survey and is taken to question" do
+    scenario "user clicks on survey and is taken to questions" do
 
       expect(page).to have_content question1.body
-      expect(page).to_not have_content question4.body
+      expect(page).to have_content question2.body
+      expect(page).to have_content question3.body
+      expect(page).to have_content question4.body
     end
     scenario "user answers a questions and is taken to the next question" do
-
       fill_in 'Answer', with: "It was ok"
       click_button 'Next Question'
 

@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
       @survey = Survey.find(@question.survey_id)
       @questions = @survey.questions
       flash[:notice] = @question.errors.full_messages.join(". ")
-      render :'surveys/index'
+      redirect_to survey_questions_path(survey)
     end
   end
 
@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :rating, :multiple_choice, :Required? )
   end
 
   def survey

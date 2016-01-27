@@ -1,17 +1,17 @@
 <%= form_for [@survey, @question] do |f| %>
-  <div class="survey-form-title">
+  <div class="question-form-title">
     <%= f.label :Body %>
     <%= f.text_field :body, placeholder: "Body" %>
   </div>
-  <div class="survey-form-rating">
+  <div class="question-form-rating">
     <%= f.label :Rating %>
-    <%= f.check_box :rating, value: true %>
+    <%= f.check_box :rating, {}, "true", "false" %>
   </div>
   <div class="multiple-choice">
     <%= f.label :multiple_choice %>
     <%= f.button "multiple choice", placeholder: "multiple choice" %>
   </div>
-  <div class="survey-form-required">
+  <div class="question-form-required">
     <%= f.label :Required? %>
     <%= f.button :Required?, placeholder: "Required?" %>
   </div>
