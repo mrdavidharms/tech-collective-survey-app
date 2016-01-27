@@ -1,0 +1,19 @@
+<p>
+ Group
+</p>
+  <% @questions.each do |question| %>
+  <tr>
+    <td><%= question.body %></td>
+    <p>
+        
+      <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
+    </p>
+    <p>
+      <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
+    </p>
+  </tr>
+    <div class="row">
+      <p>
+
+    </div>
+  <% end %>

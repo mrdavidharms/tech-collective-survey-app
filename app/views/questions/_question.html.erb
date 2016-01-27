@@ -1,20 +1,14 @@
+<h4>Question</h4>
+<%= question.body %>
 
-<% @questions.each do |question| %>
+<h5>Answer Choices</h5>
 
-  <tr>
-    <td><%= question.body %></td>
-  </tr>
-  <% unless current_admin.nil? %>
-    <div class="links">
-      <p>
-        <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
-      </p>
-      <p>
-        <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
-      </p>
-    </div>
-  <% end %>
-<% end %>
-<% unless current_admin.nil? %>
- <%= link_to "New Question", new_survey_question_path(@survey, @question) %>
-<% end %>
+<% question.answers.each do |answer| %>
+  <%= render partial: "answers/show", locals: { answer: answer } %>
+
+
+
+
+    <%= link_to "New Question", new_survey_question_path(@survey, @question) %>
+      <% end %>
+      <% end %>

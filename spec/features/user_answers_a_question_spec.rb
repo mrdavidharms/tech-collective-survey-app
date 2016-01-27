@@ -18,12 +18,26 @@ feature "user answers a question" do
         expect(page).to have_content other_survey.title
         expect(page).to_not have_content invisible_survey.title
     end
-    scenario "user clicks on survey and is taken to questions" do
-      visit root_path
-      click_link other_survey.group
+  end
+    context 'user answers a survey' do
+      before do
+        visit root_path
+                
+        click_link other_survey.group
+      end
+        scenario "user clicks on survey and is taken to question" do
+          visit root_path
+          click_link other_survey.group
 
-      expect(page).to have_content question1.body
-      expect(page).to have_content question4.body
+          expect(page).to have_content question1.body
+          expect(page).to have_content question4.body
+        end
+        scenario "user answers a questions and is taken to the next question" do
+
+          fill_in 'answer_body', with: "It was ok"
+          click_link 'Next Question'
+
+          expect(page).to have_content question2.body
     end
   end
 end

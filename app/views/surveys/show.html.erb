@@ -1,21 +1,17 @@
-<% if @survey.publish == true %>
-<% redirect_to 'answer' %>
-<% else admin_signed_in? %>
   <p>
     <%= "Added by #{@survey.admin.name}" %>
     <%= "Survey Title: #{@survey.title}"%>
     <%= "Survey Group: #{@survey.group}"%>
   </p>
 
-  <%= render 'questions/index' %>
-  <%= render 'questions/new' %>
-  <p>
-    <%= link_to "Edit Survey", edit_survey_path(@survey) %>
-  </p>
-   <p>
-    <%= link_to "Delete Survey", @survey, method: :delete %>
-  </p>
+  <% if admin_signed_in? %>
+  <p>  <%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
 
 
 
-<% end %>
+    <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
+
+
+    <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
+
+  <% end %>

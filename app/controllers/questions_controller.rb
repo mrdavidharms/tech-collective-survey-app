@@ -15,17 +15,17 @@ class QuestionsController < ApplicationController
     @question = survey.questions.new(question_params)
     if @question.save
       flash[:notice] = 'Your question has been successfully added.'
-      redirect_to survey_path(survey)
+      redirect_to survey_questions_path(survey)
     else
       @survey = Survey.find(@question.survey_id)
       @questions = @survey.questions
       flash[:notice] = @question.errors.full_messages.join(". ")
-      render :'surveys/show'
+      render :'surveys/index'
     end
   end
 
   def edit
-    @survey = Survey.find(params[:survey_id])
+     @survey = Survey.find(params[:survey_id])
      @question = @survey.questions.find(params[:id])
   end
 
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
     @question = @survey.questions.find(params[:id])
     if @question.update_attributes(question_params)
       flash[:notice] = "Question edited successfully"
-      redirect_to survey_path(survey)
+      redirect_to survey_questions_path(survey)
     else
       flash[:errors] = @question.errors.full_messages.join(". ")
       render :edit
