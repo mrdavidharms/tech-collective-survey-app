@@ -22,7 +22,6 @@ feature "user answers a question" do
     before do
       visit root_path
       click_link other_survey.title
-      click_link 'Take Survey'
     end
     scenario "user clicks on survey and is taken to questions" do
 
@@ -30,10 +29,15 @@ feature "user answers a question" do
       expect(page).to have_content question2.body
       expect(page).to have_content question3.body
       expect(page).to have_content question4.body
+      expect(page).to_not have_content "New Question"
+      expect(page).to_not have_content "Edit Question"
+      expect(page).to_not have_content "Delete Question"
+      expect(page).to_not have_content "Preview Survey"
     end
     scenario "user answers a questions and is taken to the next question" do
-      fill_in 'Answer', with: "It was ok"
-      click_button 'Next Question'
+      save_and_open_page
+      fill_in "answer_answer", with: "It was ok"
+      click_button 'Submit Survey'
 
       expect(page).to have_content 'Thank you for taking our survey!'
     end

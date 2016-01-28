@@ -4,8 +4,8 @@
     <%= f.text_field :body, placeholder: "Body" %>
   </div>
   <div class="question-form-rating">
-    <%= f.label :text? %>
-    <%= f.check_box :text?, {}, "true", "false" %>
+    <%= f.label :text %>
+    <%= f.check_box :text, {}, "true", "false" %>
   </div>
   <div class="question-form-rating">
     <%= f.label :Rating %>
@@ -16,8 +16,8 @@
     <%= f.check_box :multiple_choice, {}, "true", "false" %>
   </div>
   <div class="question-form-required">
-    <%= f.label :Required? %>
-    <%= f.check_box :required?, {}, "true", "false" %>
+    <%= f.label :Required %>
+    <%= f.check_box :required, {}, "true", "false" %>
   </div>
   <div class="form-actions">
     <%= f.button "Add Question" %>

@@ -1,19 +1,21 @@
 <p>
- Group
+ <h1><%= "#{@survey.title} for #{@survey.group}" %> </h1>
+
+  <%= link_to "Edit Survey Name and Group", edit_survey_path(@survey) %>
+    <%= link_to "Preview Survey", new_survey_answer_path(@survey) %>
 </p>
+<p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
+
   <% @questions.each do |question| %>
   <tr>
     <td><%= question.body %></td>
+
     <p>
-      <%= link_to "Preview Survey", new_survey_answer_path(@survey) %>
       <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
     </p>
     <p>
       <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
     </p>
   </tr>
-    <div class="row">
-      <p>
 
-    </div>
   <% end %>

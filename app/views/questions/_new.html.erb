@@ -12,11 +12,11 @@
     </div>
     <div class="multiple-choice">
       <%= f.label :multiple_choice %>
-        <%= f.check_box :multiple_choice, name: "multiple choice", value: "True"%>
+        <%= f.check_box :multiple_choice, name: "multiple choice", value: true %>
     </div>
     <div class="survey-form-required">
-      <%= f.label :required? %>
-      <%= f.check_box :required?, name: "required", value: "True"%>
+      <%= f.label :required %>
+      <%= f.check_box :required, name: "required", value: true %>
     </div>
   </div>
   <div class="form-actions">
