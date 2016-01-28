@@ -1,11 +1,11 @@
 require 'rails_helper'
 feature "user answers a question" do
   let!(:admin) { FactoryGirl.create(:admin) }
-  let!(:survey1) { FactoryGirl.create(:user_survey, admin: admin) }
+  let!(:survey1) { FactoryGirl.create(:user_survey, title: "something else", admin: admin) }
   let!(:invisible_survey) { FactoryGirl.create(:survey, admin: admin) }
   let!(:other_survey) { FactoryGirl.create(:user_survey, admin: admin, group: "different group") }
-  let!(:question1) { FactoryGirl.create(:question, survey: other_survey, text?: true) }
-  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, required?: true) }
+  let!(:question1) { FactoryGirl.create(:question, survey: other_survey, text: true) }
+  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, required: true) }
   let!(:question3) { FactoryGirl.create(:question, survey: other_survey, multiple_choice: true) }
   let!(:question4) { FactoryGirl.create(:question, survey: other_survey, rating: true) }
 
@@ -21,7 +21,7 @@ feature "user answers a question" do
   context 'user answers a survey' do
     before do
       visit root_path
-      click_link other_survey.group
+      click_link other_survey.title
       click_link 'Take Survey'
     end
     scenario "user clicks on survey and is taken to questions" do

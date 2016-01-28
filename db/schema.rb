@@ -42,17 +42,17 @@ ActiveRecord::Schema.define(version: 20160125190732) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.boolean  "rating"
+    t.boolean  "rating",            default: false
     t.boolean  "multiple_choice"
     t.string   "multiple_choice_1"
     t.string   "multiple_choice_2"
     t.string   "multiple_choice_3"
     t.string   "multiple_choice_4"
     t.string   "multiple_choice_5"
-    t.boolean  "required?"
-    t.boolean  "text?"
-    t.string   "body",              null: false
-    t.integer  "survey_id",         null: false
+    t.boolean  "required",          default: false
+    t.boolean  "text",              default: false
+    t.string   "body",                              null: false
+    t.integer  "survey_id",                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
