@@ -4,21 +4,29 @@
           <div class="surveys">
             <% if !@surveys.nil? %>
               <% @surveys.each do |survey| %>
-                <%= link_to survey_path(survey) do %>
-                <div class="row small-up-2 medium-up-3 large-up-4">
+                <%= link_to survey_questions_path(survey) do %>
+                  <div class="row small-up-2 medium-up-3 large-up-4">
                     <div class="survey">
-                    <% if survey.publish == true || admin_signed_in? %>
+                    <% if admin_signed_in? == true %>
                       <p class="survey-title"></p>
-                        <%= link_to survey.title, survey_path(survey), class: 'button success radius small' %>
+                        <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
                             <%= "For: #{survey.group}" %>
-                          </div>
+                             </div>
+                            <div class="survey">
+                            <% elsif survey.publish == true && admin_signed_in? == false %>
+                            <p class="survey-title"></p>
+                              <%= link_to survey.title, new_survey_answer_path(survey), class: 'button success radius small' %>
+                                  <%= "For: #{survey.group}" %>
+                                </p>
+                            </div>
+                            <% else survey.publish == false && admin_signed_in? == false %>
 
+                          </div>
                     </div>
                      <% end %>
                 <% end %>
               <% end %>
-
-                <% else %>
+            <% else %>
                   <h2>No results found</h2>
             <% end %>
 

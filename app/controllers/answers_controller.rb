@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
     @survey = Survey.find(params[:survey_id])
     @questions = @survey.questions
     @answer = Answer.new
+
   end
 
   def show

@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:body, :rating, :multiple_choice, :required )
+    params.require(:question).permit(:body, :rating, :text, :multiple_choice, :required )
   end
 
   def survey

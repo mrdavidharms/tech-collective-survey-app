@@ -8,7 +8,7 @@ class Questions < ActiveRecord::Migration
       t.string :multiple_choice_3
       t.string :multiple_choice_4
       t.string :multiple_choice_5
-      t.boolean :required, default: false
+      t.boolean :require, default: false
       t.boolean :text, default: false
       t.string :body, null: false
       t.belongs_to :survey, null: false

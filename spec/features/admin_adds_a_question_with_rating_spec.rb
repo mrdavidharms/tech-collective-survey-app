@@ -22,9 +22,7 @@ feature 'Admin makes a question using rating function' do
       click_link "Preview Survey"
 
       expect(page).to have_content question4.body
-      expect(page).to have_content "Rating"
-      expect(page).to have_content "1"
-      expect(page).to have_content "10"
+      expect(page).to have_content "12345678910"
     end
   end
 end
