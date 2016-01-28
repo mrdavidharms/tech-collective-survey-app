@@ -4,8 +4,8 @@ feature "user answers a question" do
   let!(:survey1) { FactoryGirl.create(:user_survey, admin: admin) }
   let!(:invisible_survey) { FactoryGirl.create(:survey, admin: admin) }
   let!(:other_survey) { FactoryGirl.create(:user_survey, admin: admin, group: "different group") }
-  let!(:question1) { FactoryGirl.create(:question, survey: other_survey, text?: true) }
-  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, required?: true) }
+  let!(:question1) { FactoryGirl.create(:question, survey: other_survey, text: true) }
+  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, required: true) }
   let!(:question3) { FactoryGirl.create(:question, survey: other_survey, multiple_choice: true) }
   let!(:question4) { FactoryGirl.create(:question, survey: other_survey, rating: true) }
 
