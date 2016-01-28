@@ -1,39 +1,30 @@
 <html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Foundation | Welcome</title>
-<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-</head>
-</div>
-<div class="row small-up-2 medium-up-3 large-up-4">
-<div class="column">
-  <div class="surveys">
-    <% if !@surveys.nil? %>
-      <% @surveys.each do |survey| %>
-        <%= link_to survey_path(survey) do %>
-          <div class="survey"></div>
-          <% if survey.publish == true || admin_signed_in? %>
-            <p class="survey-title">
-              <%= survey.title %>
-            </p>
-            <p class="survey-group">
-              <%= survey.group %>
-            </p>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
-      <hr class="line"/>
-    <% else %>
-      <h2>No results found</h2>
-    <% end %>
-  </div>
 
-</div>
-</div>
-<script>
-      $(document).foundation();
-    </script>
-</body>
+    <body>
+          <div class="surveys">
+            <% if !@surveys.nil? %>
+              <% @surveys.each do |survey| %>
+                <%= link_to survey_path(survey) do %>
+                <div class="row small-up-2 medium-up-3 large-up-4">
+                    <div class="survey">
+                    <% if survey.publish == true || admin_signed_in? %>
+                      <p class="survey-title"></p>
+                        <%= link_to survey.title, survey_path(survey), class: 'button success radius small' %>
+                            <%= "For: #{survey.group}" %>
+                          </div>
+
+                    </div>
+                     <% end %>
+                <% end %>
+              <% end %>
+
+                <% else %>
+                  <h2>No results found</h2>
+            <% end %>
+
+        </div>
+        <script>
+          $(document).foundation();
+        </script>
+    </body>
 </html>

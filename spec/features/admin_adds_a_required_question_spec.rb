@@ -15,7 +15,6 @@ feature 'Admin makes a question using required function' do
       click_button 'Add Question'
 
       expect(page).to have_content "Your question has been successfully added"
-      binding.pry
       expect(page).to have_content "This question is required"
 
     end
