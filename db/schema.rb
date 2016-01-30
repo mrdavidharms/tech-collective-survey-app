@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160125190732) do
     t.string   "answer"
     t.string   "rating_answer"
     t.string   "selection"
-    t.integer  "survey_id",     null: false
+    t.integer  "question_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

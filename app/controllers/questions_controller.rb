@@ -6,9 +6,16 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def show
+    survey = Survey.find(params[:survey_id])
+    @question = @survey.questions.find(params[:id])
+
+  end
+
   def index
     survey = Survey.find(params[:survey_id])
-    @questions = survey.questions
+    @questions = survey.questions.order(:body)
+
   end
 
   def create
