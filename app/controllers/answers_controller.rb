@@ -18,20 +18,17 @@ class AnswersController < ApplicationController
 
   def create
 
-  @question = Question.find(params[:question_id])
-  @survey = Survey.find(@question.survey_id)
-  @answer = @question.answers.create(answer_params)
-  @answer.survey_id = @survey.id
-    if @answer.save
+    @question = Question.find(params[:question_id])
+    @survey = Survey.find(@question.survey_id)
+    @answer = @question.answers.create(answer_params)
+    @answer.survey_id = @survey.id
+    @nq = next_question.first
+    if @answer.save && @question.id != @nq.id
       flash[:notice] = 'answer saved'
-      next_question.each do |nq|
-        if @question.id != nq.id
-          redirect_to new_question_answer_path(question_id: next_question)
-        else
-          flash[:notice] = "Thank you for taking our survey!"
-          redirect_to root_path
-        end
-      end
+      redirect_to new_question_answer_path(question_id: next_question)
+    elsif @answer.save && @question.id == @nq.id
+      flash[:notice] = "Thank you for taking our survey!"
+      redirect_to root_path
     else
       @question = Question.find(@answer.question_id)
       @answers = @question.answers

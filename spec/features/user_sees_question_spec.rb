@@ -5,7 +5,7 @@ feature "user answers a question" do
   let!(:invisible_survey) { FactoryGirl.create(:survey, admin: admin) }
   let!(:other_survey) { FactoryGirl.create(:user_survey, admin: admin, group: "different group") }
   let!(:question1) { FactoryGirl.create(:question, survey: other_survey, text: true) }
-  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, require: true) }
+  let!(:question2) { FactoryGirl.create(:question, survey: other_survey) }
   let!(:question3) { FactoryGirl.create(:question, survey: other_survey, multiple_choice: true) }
   let!(:question4) { FactoryGirl.create(:question, survey: other_survey, rating: true) }
 
@@ -30,6 +30,14 @@ feature "user answers a question" do
       expect(page).to_not have_content "Edit Question"
       expect(page).to_not have_content "Delete Question"
       expect(page).to_not have_content "Preview Survey"
+    end
+    scenario "user answers a question and sees next question" do
+
+      fill_in "answer_answer", with: "Too good"
+      click_button 'Submit Answer'
+
+      expect(page).to have_content 'answer saved'
+      expect(page).to have_content question2.body
     end
   end
 end
