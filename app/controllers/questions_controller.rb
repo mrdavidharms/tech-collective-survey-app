@@ -17,7 +17,8 @@ class QuestionsController < ApplicationController
     @questions = survey.questions
     else admin_signed_in? == false
       survey = Survey.find(params[:survey_id])
-      @question = Question.first
+      @questions = survey.questions
+      @question = @questions.first
       redirect_to new_question_answer_path(@question, @answer)
     end
   end

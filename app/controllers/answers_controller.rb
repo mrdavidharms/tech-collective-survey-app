@@ -17,23 +17,29 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @question = Question.find(params[:question_id])
-    @answer = @question.answers.create(answer_params)
+
+
+  @question = Question.find(params[:question_id])
+  @survey = Survey.find(@question.survey_id)
+  @answer = @question.answers.create(answer_params)
+  @answer.survey_id = @survey.id
     if @answer.save
       flash[:notice] = 'answer saved'
-       unless next_question.nil?
-          redirect_to new_question_answer_path(question_id: next_question)
+      next_question.each do |nq|
+        unless @question.id == nq.id
+        redirect_to new_question_answer_path(question_id: next_question)
         else
-          @question = Question.find(@answer.question_id)
-          @answers = @question.answers
-          flash[:notice] = @answer.errors.full_messages.join(". ")
+          flash[:notice] = "Thank you for taking our survey!"
           redirect_to root_path
         end
+      end
     else
-      render :new
+      @question = Question.find(@answer.question_id)
+      @answers = @question.answers
+      flash[:notice] = @answer.errors.full_messages.join(". ")
+      redirect_to root_path
     end
   end
-
 
   private
 
@@ -41,9 +47,12 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:answer, :selection, :rating_answer, :survey_id )
   end
 
-
   def next_question
-    Question.find_by(id: @question.id + 1)
+    @questions = Question.where(survey_id: @question.survey_id)
+    @questions.to_a.slice!(0)
+    @questions.each do |question|
+     question.id
+    end
   end
 
   def answer

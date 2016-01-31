@@ -31,13 +31,5 @@ feature "user answers a question" do
       expect(page).to_not have_content "Delete Question"
       expect(page).to_not have_content "Preview Survey"
     end
-    scenario "user answers a questions and is taken to the next question" do
-
-      fill_in "answer_answer", with: "It was ok"
-      click_button 'Submit Answer'
-
-      expect(page).to have_content 'answer saved'
-      expect(page).to have_content question2.body
-    end
   end
 end
