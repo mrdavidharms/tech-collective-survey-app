@@ -57,6 +57,11 @@ ActiveRecord::Schema.define(version: 20160131013234) do
     t.datetime "updated_at"
   end
 
+  create_table "results", force: :cascade do |t|
+    t.integer "surveys_id"
+    t.integer "answers_id"
+  end
+
   create_table "surveys", force: :cascade do |t|
     t.string   "title",                      null: false
     t.string   "group"

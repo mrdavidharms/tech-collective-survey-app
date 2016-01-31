@@ -19,7 +19,6 @@ class AnswersController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @answer = @question.answers.create(answer_params)
-
     if @answer.save
       flash[:notice] = 'answer saved'
        unless next_question.nil?
