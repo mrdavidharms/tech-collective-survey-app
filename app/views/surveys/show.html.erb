@@ -6,18 +6,7 @@
   <p>
     <%= "Survey Title: #{@survey.title}"%>
     <%= "Survey Group: #{@survey.group}"%>
-    <%= link_to "Take Survey", new_survey_answer_path(@survey, @answer) %>
+
 
   </p>
-
-
-  <% if admin_signed_in? %>
-
-    <p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
-
-    <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
-
-
-    <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
-
-  <% end %>
+<%= render 'admin_survey' %>

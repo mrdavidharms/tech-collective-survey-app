@@ -5,7 +5,7 @@ feature "user answers a question" do
   let!(:invisible_survey) { FactoryGirl.create(:survey, admin: admin) }
   let!(:other_survey) { FactoryGirl.create(:user_survey, admin: admin, group: "different group") }
   let!(:question1) { FactoryGirl.create(:question, survey: other_survey, text: true) }
-  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, required: true) }
+  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, require: true) }
   let!(:question3) { FactoryGirl.create(:question, survey: other_survey, multiple_choice: true) }
   let!(:question4) { FactoryGirl.create(:question, survey: other_survey, rating: true) }
 
@@ -32,8 +32,7 @@ feature "user answers a question" do
       expect(page).to_not have_content "Preview Survey"
     end
     scenario "user answers a questions and is taken to the next question" do
-      click_link question1.body
-      click_link question1.body
+
       fill_in "answer_answer", with: "It was ok"
       click_button 'Submit Answer'
 

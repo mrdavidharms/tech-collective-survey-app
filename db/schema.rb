@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125190732) do
+ActiveRecord::Schema.define(version: 20160131013234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160125190732) do
     t.string   "multiple_choice_3"
     t.string   "multiple_choice_4"
     t.string   "multiple_choice_5"
-    t.boolean  "required",          default: false
+    t.boolean  "require",           default: false
     t.boolean  "text",              default: false
     t.string   "body",                              null: false
     t.integer  "survey_id",                         null: false

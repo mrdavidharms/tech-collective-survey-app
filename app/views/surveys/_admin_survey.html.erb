@@ -1,0 +1,10 @@
+<% if admin_signed_in? %>
+
+  
+
+  <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
+
+
+  <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
+
+<% end %>

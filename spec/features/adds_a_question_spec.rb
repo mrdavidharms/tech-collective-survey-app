@@ -25,7 +25,6 @@ feature "admins can add a new question for a survey" do
       expect(page).to have_content 'New Question'
       expect(page).to have_content 'Edit Question'
       expect(page).to have_content 'Delete Question'
-      expect(page).to have_content 'Preview Survey'
     end
     scenario "admin can see options for creating a question" do
       visit new_survey_question_path(survey)
@@ -33,7 +32,7 @@ feature "admins can add a new question for a survey" do
       expect(page).to have_content 'Add Question'
       expect(page).to have_content 'Rating'
       expect(page).to have_content 'Multiple choice'
-      expect(page).to have_content 'Required'
+      expect(page).to have_content 'Require'
     end
 
     scenario "admin can see options for creating a question surveys index" do
@@ -42,7 +41,6 @@ feature "admins can add a new question for a survey" do
       expect(page).to have_content 'New Question'
       expect(page).to have_content 'Edit Question'
       expect(page).to have_content 'Delete Question'
-      expect(page).to have_content 'Preview Survey'
     end
 
     scenario "admin adds tries to add a blank question" do

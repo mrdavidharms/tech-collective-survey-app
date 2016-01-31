@@ -9,13 +9,17 @@ class QuestionsController < ApplicationController
   def show
     survey = Survey.find(params[:survey_id])
     @question = @survey.questions.find(params[:id])
-
   end
 
   def index
+    if admin_signed_in?
     survey = Survey.find(params[:survey_id])
-    @questions = survey.questions.order(:body)
-
+    @questions = survey.questions
+    else admin_signed_in? == false
+      survey = Survey.find(params[:survey_id])
+      @question = Question.first
+      redirect_to new_question_answer_path(@question, @answer)
+    end
   end
 
   def create

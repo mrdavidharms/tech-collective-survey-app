@@ -18,16 +18,17 @@ class AnswersController < ApplicationController
 
   def create
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.new(answer_params)
+    @answer = @question.answers.create(answer_params)
+
     if @answer.save
       flash[:notice] = 'answer saved'
-       if nq = Question.find_by(id: @question.id + 1)
-          redirect_to new_question_answer_path(question_id: nq)
+       unless next_question.nil?
+          redirect_to new_question_answer_path(question_id: next_question)
         else
           @question = Question.find(@answer.question_id)
           @answers = @question.answers
           flash[:notice] = @answer.errors.full_messages.join(". ")
-          render root_path
+          redirect_to root_path
         end
     else
       render :new
@@ -38,12 +39,12 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:answer, :selection, :rating_answer )
+    params.require(:answer).permit(:answer, :selection, :rating_answer, :survey_id )
   end
 
 
   def next_question
-    Question.find(params[:question_id].to_i + 1)
+    Question.find_by(id: @question.id + 1)
   end
 
   def answer
