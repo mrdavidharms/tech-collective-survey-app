@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160131013234) do
     t.datetime "updated_at"
   end
 
-  create_table "surveyanswers", force: :cascade do |t|
+  create_table "results", force: :cascade do |t|
     t.integer "surveys_id"
     t.integer "answers_id"
   end
