@@ -11,19 +11,12 @@ feature 'Admin makes a question using required function' do
     end
     scenario "admin adds questions using rating function" do
       fill_in 'Body', with: "This question is required"
-      check "question_required"
+      check "question_require"
       click_button 'Add Question'
 
       expect(page).to have_content "Your question has been successfully added"
       expect(page).to have_content "This question is required"
 
-    end
-    scenario "admin previews survey" do
-      visit survey_questions_path(survey1)
-      click_link "Preview Survey"
-
-      expect(page).to have_content question4.body
-      expect(page).to have_content "12345678910"
     end
   end
 end

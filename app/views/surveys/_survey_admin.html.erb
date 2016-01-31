@@ -1,10 +1,3 @@
 <% if admin_signed_in? %>
 <%= render 'questions/index' %>
 <%= render 'questions/new' %>
-<p>
-  <%= link_to "Edit Survey", edit_survey_path(@survey) %>
-</p>
- <p>
-  <%= link_to "Delete Survey", @survey, method: :delete %>
-  <% end %>
-</p>

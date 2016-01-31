@@ -5,7 +5,7 @@ feature "user answers a question" do
   let!(:invisible_survey) { FactoryGirl.create(:survey, admin: admin) }
   let!(:other_survey) { FactoryGirl.create(:user_survey, admin: admin, group: "different group") }
   let!(:question1) { FactoryGirl.create(:question, survey: other_survey, text: true) }
-  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, required: true) }
+  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, require: true) }
   let!(:question3) { FactoryGirl.create(:question, survey: other_survey, multiple_choice: true) }
   let!(:question4) { FactoryGirl.create(:question, survey: other_survey, rating: true) }
 
@@ -26,20 +26,18 @@ feature "user answers a question" do
     scenario "user clicks on survey and is taken to questions" do
 
       expect(page).to have_content question1.body
-      expect(page).to have_content question2.body
-      expect(page).to have_content question3.body
-      expect(page).to have_content question4.body
       expect(page).to_not have_content "New Question"
       expect(page).to_not have_content "Edit Question"
       expect(page).to_not have_content "Delete Question"
       expect(page).to_not have_content "Preview Survey"
     end
     scenario "user answers a questions and is taken to the next question" do
-      save_and_open_page
-      fill_in "answer_answer", with: "It was ok"
-      click_button 'Submit Survey'
 
-      expect(page).to have_content 'Thank you for taking our survey!'
+      fill_in "answer_answer", with: "It was ok"
+      click_button 'Submit Answer'
+
+      expect(page).to have_content 'answer saved'
+      expect(page).to have_content question2.body
     end
   end
 end

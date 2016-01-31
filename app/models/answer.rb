@@ -1,3 +1,4 @@
 class Answer < ActiveRecord::Base
-  belongs_to :survey
+  has_many :surveys, through: :survey_answers
+  belongs_to :question
 end

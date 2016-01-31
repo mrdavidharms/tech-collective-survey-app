@@ -4,7 +4,7 @@ feature "user answers a question" do
   let!(:survey1) { FactoryGirl.create(:user_survey, title: "something else", admin: admin) }
   let!(:invisible_survey) { FactoryGirl.create(:survey, admin: admin) }
   let!(:other_survey) { FactoryGirl.create(:user_survey, admin: admin, group: "different group") }
-  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, text: true, required: true) }
+  let!(:question2) { FactoryGirl.create(:question, survey: other_survey, text: true, require: true) }
     # let!(:question5) { FactoryGirl.create(:question, survey: other_survey, rating: true, text: true, required: true) }
 
   context 'user answers a survey' do
@@ -18,7 +18,7 @@ feature "user answers a question" do
     end
     scenario "user answers a questions a required question" do
       fill_in "answer_answer", with: ""
-      click_button 'Submit Survey'
+      click_button 'Submit Answer'
 
       # expect(page).to have_content 'Answer required'
     end
