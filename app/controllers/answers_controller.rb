@@ -18,7 +18,6 @@ class AnswersController < ApplicationController
 
   def create
 
-
   @question = Question.find(params[:question_id])
   @survey = Survey.find(@question.survey_id)
   @answer = @question.answers.create(answer_params)
@@ -26,8 +25,8 @@ class AnswersController < ApplicationController
     if @answer.save
       flash[:notice] = 'answer saved'
       next_question.each do |nq|
-        unless @question.id == nq.id
-        redirect_to new_question_answer_path(question_id: next_question)
+        if @question.id != nq.id
+          redirect_to new_question_answer_path(question_id: next_question)
         else
           flash[:notice] = "Thank you for taking our survey!"
           redirect_to root_path
@@ -51,7 +50,7 @@ class AnswersController < ApplicationController
     @questions = Question.where(survey_id: @question.survey_id)
     @questions.to_a.slice!(0)
     @questions.each do |question|
-     question.id
+      question.id
     end
   end
 
