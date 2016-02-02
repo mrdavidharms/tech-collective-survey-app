@@ -12,7 +12,7 @@ feature 'admin deletes a question' do
     end
 
     scenario "admin sees delete button for question" do
-      expect(page).to have_content "Delete Question"
+      expect(page).to have_button "Delete Question"
     end
 
     scenario "admin successfully deletes question" do
