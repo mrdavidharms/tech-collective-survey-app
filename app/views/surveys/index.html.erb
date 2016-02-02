@@ -1,14 +1,14 @@
 <html class="no-js" lang="en">
 
     <body style>
-          <div class="surveys">
+
             <% unless @surveys.nil? %>
               <% @surveys.each do |survey| %>
                 <%= link_to survey_questions_path(survey) do %>
-                
+
 
                     <% if admin_signed_in? == true %>
-
+                    <div class="surveys">
                       <div class="survey-title"></p>
                         <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
                             <%= "For: #{survey.group}" %>
