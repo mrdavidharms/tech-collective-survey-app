@@ -396,7 +396,7 @@ $include-html-global-classes: $include-html-classes;
 // $block-grid-elements: 12;
 // $block-grid-default-spacing: rem-calc(20);
 
-// $align-block-grid-to-grid: false;
+$align-block-grid-to-grid: false;
 // @if $align-block-grid-to-grid {$block-grid-default-spacing: $column-gutter;}
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
@@ -466,7 +466,7 @@ $include-html-global-classes: $include-html-classes;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
+$button-bg-color: #669BAD;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
@@ -633,7 +633,7 @@ $include-html-global-classes: $include-html-classes;
 // 11. Forms
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $include-html-form-classes: $include-html-classes;
+ $include-html-form-classes: $include-html-classes;
 
 // We use this to set the base for lots of form spacing and positioning styles
 // $form-spacing: rem-calc(16);
@@ -666,7 +666,7 @@ $include-html-global-classes: $include-html-classes;
 // $fieldset-border-style: solid;
 // $fieldset-border-width: 1px;
 // $fieldset-border-color: $gainsboro;
-// $fieldset-padding: rem-calc(20);
+ $fieldset-padding: rem-calc(100);
 // $fieldset-margin: rem-calc(18 0);
 
 // We use these to style the legends when you use them

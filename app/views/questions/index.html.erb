@@ -1,23 +1,38 @@
 
-
+<div class= "most-body">
 <p>
  <h1><%= "#{@survey.title} for #{@survey.group}" %> </h1>
-
+  <div class="edit-survey-name">
   <%= link_to "Edit Survey Name and Group", edit_survey_path(@survey) %>
+  </div>
+
 
 </p>
-<p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
 
-  <% @questions.each do |question| %>
-  <tr>
-    <td><%= link_to "#{question.body}", survey_question_path(@survey, question) %></td>
+<div class ="questions">
+<% @questions.each do |question| %>
+</div>
 
-    <p>
-      <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
-    </p>
-    <p>
-      <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
-    </p>
-  </tr>
+      <div class= "question-body">
+        <%= link_to "#{question.body}", survey_question_path(@survey, question) %>
+      </div>
+      <div class="row">
+      <div class= "button-tiny">
+        <%= button_to "Edit Question", edit_survey_question_path(@survey, question), class: "tiny-button", method: :get  %>
+      </div>
+        <div class= "button-tiny">
+          <%= button_to "Delete Question", survey_question_path(@survey, question), class: "tiny-button", method: :delete %>
+        </div>
+        <p></p>
+
+
 
   <% end %>
+  <div class="row">
+    <div class= "add-button">
+    <%= button_to "Add Question", new_survey_question_path(@survey, @question), class: "button-round", method: :get  %>
+  </div>
+  </div>
+
+  </div>
+</div>

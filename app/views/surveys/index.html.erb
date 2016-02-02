@@ -1,31 +1,31 @@
 <html class="no-js" lang="en">
 
-    <body>
+    <body style>
           <div class="surveys">
             <% unless @surveys.nil? %>
               <% @surveys.each do |survey| %>
                 <%= link_to survey_questions_path(survey) do %>
-                  <div class="row small-up-2 medium-up-3 large-up-4">
-                    <div class="survey">
+                
+
                     <% if admin_signed_in? == true %>
 
-                      <p class="survey-title"></p>
+                      <div class="survey-title"></p>
                         <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
                             <%= "For: #{survey.group}" %>
-                             </div>
-                            <div class="survey">
+                          </div>
+                            <div class="survey-title">
                             <% elsif survey.publish == true && admin_signed_in? == false %>
                             <p class="survey-title"></p>
 
                               <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
                                   <%= "For: #{survey.group}" %>
                                 </p>
-                            </div>
+
                             <% else survey.publish == false && admin_signed_in? == false %>
 
 
-                          </div>
                     </div>
+                  </div>
                      <% end %>
                 <% end %>
               <% end %>
@@ -34,7 +34,7 @@
             <% end %>
 
 
-        </div>
+          </div>
         <script>
           $(document).foundation();
         </script>
