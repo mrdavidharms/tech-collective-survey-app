@@ -19,7 +19,7 @@ feature "admin edits a question" do
     before do
       sign_in_as(admin)
       visit survey_questions_path(survey)
-      click_link "Edit Question"
+      click_button "Edit Question"
     end
     scenario "signed in admin sucessfully edits question" do
 
@@ -37,7 +37,7 @@ feature "admin edits a question" do
         sign_out
         sign_in_as(admin2)
         visit survey_questions_path(survey)
-        click_link "Edit Question"
+        click_button "Edit Question"
       end
 
       scenario "admin can edit other admins survey" do

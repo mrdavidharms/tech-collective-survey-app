@@ -16,7 +16,7 @@ feature 'admin deletes a question' do
     end
 
     scenario "admin successfully deletes question" do
-      click_link "Delete Question"
+      click_button "Delete Question"
       expect(page).to_not have_content question.body
     end
   end

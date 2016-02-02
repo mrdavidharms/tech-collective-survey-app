@@ -21,7 +21,7 @@ feature "admins can add a new question for a survey" do
 
     scenario "admin can see add question button with options next to it" do
       visit survey_questions_path(survey)
-
+      save_and_open_page
       expect(page).to have_content 'New Question'
       expect(page).to have_content 'Edit Question'
       expect(page).to have_content 'Delete Question'

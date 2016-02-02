@@ -1,0 +1,32 @@
+@import "colors";
+@import "foundation_and_overrides";
+
+
+
+.button.success.radius.small {
+  margin-left: 170px;
+  margin-right: auto;
+  color: black;
+  background-color: darkseagreen;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: x-large;
+  font-family: serif;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: blanchedalmond;
+
+}
+
+div.surveys {
+  padding-left: 200px;
+  padding-top: 140px;
+}
+
+.content {
+  margin-left: inherit;
+    margin-right: inherit;
+
+}
