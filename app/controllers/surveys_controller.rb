@@ -37,7 +37,7 @@ class SurveysController < ApplicationController
     @survey = Survey.find(params[:id])
     if @survey.update_attributes(survey_params)
       flash[:notice] = "Survey edited successfully"
-      redirect_to root_path
+      redirect_to survey_questions_path(@survey)
     else
       flash[:errors] = @survey.errors.full_messages.join(". ")
       render :edit

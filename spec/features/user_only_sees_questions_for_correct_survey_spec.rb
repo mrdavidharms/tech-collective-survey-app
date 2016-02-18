@@ -5,8 +5,11 @@ feature 'user only sees questions for survey they clicked on' do
   let!(:other_survey) { FactoryGirl.create(:user_survey, title: "survey 2", admin: admin, group: "different group") }
   let!(:question1) { FactoryGirl.create(:question, survey: survey, text: true) }
   let!(:question3) { FactoryGirl.create(:question, survey: survey, text: true) }
+  let!(:question5) { FactoryGirl.create(:question, survey: survey, text: true) }
   let!(:question2) { FactoryGirl.create(:question, survey: other_survey, text: true) }
   let!(:question4) { FactoryGirl.create(:question, survey: other_survey, text: true) }
+  let!(:question6) { FactoryGirl.create(:question, survey: other_survey, text: true) }
+
   context "user takes survey" do
     before do
       visit root_path
