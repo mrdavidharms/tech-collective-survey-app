@@ -3,6 +3,7 @@ class AnswersController < ApplicationController
 
   def new
     @question = Question.find(params[:question_id])
+    @survey = Survey.find(@question.survey_id)
     @answer = Answer.new
   end
 
@@ -45,7 +46,9 @@ class AnswersController < ApplicationController
 
   def next_question
     @questions = Question.where(survey_id: @question.survey_id)
+
     @questions.to_a.slice!(0)
+
     @questions.each do |question|
       question.id
     end

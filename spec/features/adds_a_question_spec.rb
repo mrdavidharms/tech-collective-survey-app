@@ -31,8 +31,6 @@ feature "admins can add a new question for a survey" do
 
       expect(page).to have_button 'Add Question'
       expect(page).to have_content 'Rating'
-      expect(page).to have_content 'Multiple choice'
-      expect(page).to have_content 'Require'
     end
 
     scenario "admin can see options for creating a question surveys index" do

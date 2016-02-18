@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
       @survey = Survey.find(@question.survey_id)
       @questions = @survey.questions
       flash[:notice] = @question.errors.full_messages.join(". ")
-      redirect_to survey_questions_path(survey)
+      redirect_to new_survey_question_path(survey)
     end
   end
 
@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
       redirect_to survey_questions_path(survey)
     else
       flash[:errors] = @question.errors.full_messages.join(". ")
-      render :edit
+      redirect_to edit_survey_question_path(@survey, @question)
     end
   end
 

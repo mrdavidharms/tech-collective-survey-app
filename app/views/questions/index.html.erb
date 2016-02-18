@@ -14,7 +14,7 @@
 </div>
 
       <div class= "question-body">
-        <%= link_to "#{question.body}", survey_question_path(@survey, question) %>
+        <%= link_to "#{question.body}", new_question_answer_path(question, @answer) %>
       </div>
       <div class="row">
       <div class= "button-tiny">
