@@ -20,14 +20,16 @@ class AnswersController < ApplicationController
   def create
 
     @question = Question.find(params[:question_id])
+
     @survey = Survey.find(@question.survey_id)
     @answer = @question.answers.create(answer_params)
     @answer.survey_id = @survey.id
-    @nq = next_question.first
-    if @answer.save && @question.id != @nq.id
+    @nq = next_question
+
+    if @answer.save && next_question != nil
       flash[:notice] = 'answer saved'
       redirect_to new_question_answer_path(question_id: next_question)
-    elsif @answer.save && @question.id == @nq.id
+    elsif @answer.save && next_question == nil
       flash[:notice] = "Thank you for taking our survey!"
       redirect_to root_path
     else
@@ -44,14 +46,24 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:answer, :selection, :rating_answer, :survey_id )
   end
 
+  def current_question
+    @question = Question.find(@answer.question_id)
+  end
+
   def next_question
+    next_array = []
+    @question = Question.find(params[:question_id])
     @questions = Question.where(survey_id: @question.survey_id)
 
-    @questions.to_a.slice!(0)
+    @questions.to_a.each do |question|
 
-    @questions.each do |question|
-      question.id
+      if question.id > current_question.id
+
+        next_array << question.id
+      end
     end
+
+    next_array[0]
   end
 
   def answer

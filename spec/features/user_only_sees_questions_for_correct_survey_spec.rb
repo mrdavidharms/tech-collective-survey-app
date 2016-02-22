@@ -44,6 +44,11 @@ feature 'user only sees questions for survey they clicked on' do
       fill_in "answer_answer", with: "It was good"
       click_button 'Submit Answer'
 
+      expect(page).to have_content question6.body
+      
+      fill_in "answer_answer", with: "It was good"
+      click_button 'Submit Answer'
+
       expect(page).to have_content 'Thank you for taking our survey!'
     end
   end
