@@ -8,7 +8,6 @@ class AnswersController < ApplicationController
   end
 
   def show
-      binding.pry
     @question = Question.find(params[:question_id])
     @answer = survey.answers.new(answer_params)
   end
@@ -19,7 +18,6 @@ class AnswersController < ApplicationController
   end
 
   def create
-    
     @question = Question.find(params[:question_id])
     @survey = Survey.find(@question.survey_id)
     @answer = @question.answers.create(answer_params)
