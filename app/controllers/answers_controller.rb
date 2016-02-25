@@ -18,9 +18,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-
     @question = Question.find(params[:question_id])
-
     @survey = Survey.find(@question.survey_id)
     @answer = @question.answers.create(answer_params)
     @answer.survey_id = @survey.id

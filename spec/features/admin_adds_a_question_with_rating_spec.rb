@@ -16,6 +16,21 @@ feature 'Admin makes a question using rating function' do
 
       expect(page).to have_content "Your question has been successfully added"
       expect(page).to have_content "On a scale of 1-10 what do you think?"
+      expect(page).to have_content "1"
+      expect(page).to have_content "10"
+    end
+    scenario "admin adds questions using rating and text function" do
+      fill_in 'Body', with: "On a scale of 1-10 what do you think?"
+      check "question_rating"
+      check "question_text"
+      click_button 'Add Question'
+      click_link "On a scale of 1-10 what do you think?"
+
+      find_field('answer_answer')
+
+      expect(page).to have_content "On a scale of 1-10 what do you think?"
+      expect(page).to have_content "2"
+
     end
   end
 end

@@ -58,5 +58,15 @@ feature "admins can add a new question for a survey" do
       expect(page).to have_content "Your question has been successfully added"
       expect(page).to have_content "what do you think?"
     end
+    scenario "admin adds a new text question successfully" do
+      visit new_survey_question_path(survey)
+      fill_in 'Body', with: "what do you think?"
+      check "question_text"
+      click_button 'Add Question'
+      click_link "what do you think?"
+
+      find_field('answer_answer')
+      expect(page).to have_content "what do you think?"
+    end
   end
 end
