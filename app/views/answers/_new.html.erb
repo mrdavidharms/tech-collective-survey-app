@@ -1,28 +1,44 @@
 
   <tr>
 
-  <% form_for [@question, @answer] do |f| %>
-    <% @questions.each do |question| %>
-      <% if @question.text? == true %>
-        <div class="survey-form-title">
-        <%= "#{question.body}" %>
-        <%= f.label :answer_body %>
-        <%= f.text_field :answer_body, placeholder: "Answer" %>
-        <div class="form-actions">
-        <%= f.button "Submit" %>
+  <%= form_for [@question, @answer] do |f| %>
+
+      <%= "#{@question.body}" %>
+          <div class="answer-form-title">
+
+          <% if @question.text == true %>
+          <%= f.text_field :answer %>
+          <% elsif @question.text == true && question.rating == true %>
+          <%= f.text_field :answer%>
+          <%= f.collection_radio_buttons(:rating_answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
+          <% elsif @question.text == true && question.require == true %>
+          <%= f.text_field :answer, :required => true, label: "required" %>
+
+          <% elsif @question.text == true && @question.rating == true && @question.require == true %>
+          <%= f.text_field :answer, :required => true, label: "required" %>
+
+          <%= f.collection_radio_buttons(:answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
+
+          <% elsif @question.rating == true %>
+          <%= f.collection_radio_buttons(:rating_answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
+          <% elsif @question.rating == true && @question.require == true %>
+          <%= f.collection_radio_buttons(:answer [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last,  required: true) %>
+
       </div>
       <% end %>
-    <% end%>
+
+    <%= f.button "Submit Answer" %>
   <% end %>
+
+
     <br>
   </tr>
   <% if admin_signed_in? %>
     <div class="row">
       <p>
-        <%= link_to "Add Question", new_survey_question_path(@survey, @question) %>
-        <%= link_to "Edit Question", edit_survey_question_path(@survey, question) %>
-        <%= link_to "Delete Question", survey_question_path(@survey, question), method: :delete %>
+        <p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
+        <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
+        <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
       </p>
     </div>
-  <%= render 'questions/new' %>
-  <% end %>
+    <% end %>
