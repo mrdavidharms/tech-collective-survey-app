@@ -7,12 +7,12 @@
 
                 <%= link_to survey_questions_path(survey) do %>
 
-
                     <% if admin_signed_in? == true %>
 
                       <div class="survey-title"></p>
                         <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
                             <%= "For: #{survey.group}" %>
+                          <%= button_to "see #{survey.title} answers",  question_answers_path(survey), class: 'button success radius small', method: :get %>
                           </div>
                             <div class="survey-title">
                             <% elsif survey.publish == true && admin_signed_in? == false %>

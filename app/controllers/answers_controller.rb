@@ -8,13 +8,15 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:question_id])
+    question = Question.find(params[:question_id])
     @answer = survey.answers.new(answer_params)
   end
 
   def index
-    @questions = Question.find(params[:question_id])
-    @answers = @questions.answers
+    @question = Question.find(params[:question_id])
+    @survey = Survey.find(@question.survey_id)
+    @questions = @survey.questions
+    @answers = @survey.answers}
   end
 
   def create
@@ -41,7 +43,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:answer, :selection, :rating_answer, :survey_id )
+    params.require(:answer).permit(:answer, :selection, :rating_answer, :question_id, :survey_id )
   end
 
   def current_question
@@ -54,13 +56,10 @@ class AnswersController < ApplicationController
     @questions = Question.where(survey_id: @question.survey_id)
 
     @questions.to_a.each do |question|
-
       if question.id > current_question.id
-
         next_array << question.id
       end
     end
-
     next_array[0]
   end
 
