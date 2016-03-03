@@ -25,24 +25,14 @@ feature 'admin sees list of answers' do
     before do
       sign_in_as(admin)
       visit surveys_path
-      click_button "see #{survey.title} answers"
+      click_link survey.title
     end
-    scenario "admin should see survey title as header" do
 
-      expect(page).to have_content survey.title
-    end
-    scenario "admin should see questions associated with survey" do
-
-      expect(page).to have_content question1.title
-      expect(page).to have_content question2.title
-      expect(page).to have_content question3.title
-    end
-    scenario "admin should see answers associated with survey" do
+    scenario "admin should see answers associated with survey1" do
+      click_button "see #{question1.body} answers"
 
       expect(page).to have_content answer1.answer
-      expect(page).to have_content answer1.answer_rating
-      expect(page).to have_content answer2.answer_rating
-      expect(page).to have_content answer3.answer
+      expect(page).to have_content answer1.rating_answer
     end
   end
 end
