@@ -1,0 +1,9 @@
+<% @answers.each do |answer| %>
+  <%unless answer.answer == nil?%>
+  <%= "#{answer.answer}"%>
+    <% end %>
+  <%unless answer.rating_answer == nil?%>
+  <%= "#{answer.rating_answer}"%>
+
+<% end %>
+<% end %>

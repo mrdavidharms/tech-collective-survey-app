@@ -21,4 +21,8 @@ FactoryGirl.define do
   factory :question do
     sequence(:body) { |n| "How did you feel about this event? #{n}" }
   end
+
+  factory :answer do
+
+  end
 end

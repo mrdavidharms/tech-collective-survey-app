@@ -11,11 +11,14 @@
 
 <div class ="questions">
 <% @questions.each do |question| %>
+
 </div>
 
       <div class= "question-body">
         <%= link_to "#{question.body}", new_question_answer_path(question, @answer) %>
+
       </div>
+      <%= button_to "see #{question.body} answers",  question_answers_path(question, @answers), class: 'button success radius small', method: :get %>
       <div class="row">
       <div class= "button-tiny">
         <%= button_to "Edit Question", edit_survey_question_path(@survey, question), class: "tiny-button", method: :get  %>

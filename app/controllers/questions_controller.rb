@@ -9,12 +9,15 @@ class QuestionsController < ApplicationController
   def show
     survey = Survey.find(params[:survey_id])
     @question = @survey.questions.find(params[:id])
+    @answer = Answer.new
+  @answers = @question.answers
   end
 
   def index
     if admin_signed_in?
     survey = Survey.find(params[:survey_id])
     @questions = survey.questions
+
     else admin_signed_in? == false
       survey = Survey.find(params[:survey_id])
       @questions = survey.questions
