@@ -4,13 +4,8 @@ feature 'admin sees list of answers' do
   let!(:survey) { FactoryGirl.create(:user_survey, admin: admin) }
   let!(:other_survey) { FactoryGirl.create(:user_survey, admin: admin, title: "other survey") }
   let!(:question1) { FactoryGirl.create(:question, survey: survey, text: true, rating: true) }
-  let!(:question2) { FactoryGirl.create(:question, survey: survey, rating: true) }
-  let!(:question3) { FactoryGirl.create(:question, survey: survey, text: true) }
-  let!(:question4) { FactoryGirl.create(:question, survey: other_survey, text: true) }
   let!(:answer1) { FactoryGirl.create(:answer, question: question1, answer: "it was cool", rating_answer: "10") }
-  let!(:answer2) { FactoryGirl.create(:answer, question: question2, rating_answer: "5") }
-  let!(:answer3) { FactoryGirl.create(:answer, question: question3, answer: "it was very nice") }
-  let!(:answer4) { FactoryGirl.create(:answer, question: question4, answer: "it was very very something else") }
+
   context 'logged in admin' do
     before do
       sign_in_as(admin)
@@ -31,6 +26,7 @@ feature 'admin sees list of answers' do
     scenario "admin should see answers associated with survey1" do
       click_button "see #{question1.body} answers"
 
+      expect(page).to have_content question1.body
       expect(page).to have_content answer1.answer
       expect(page).to have_content answer1.rating_answer
     end

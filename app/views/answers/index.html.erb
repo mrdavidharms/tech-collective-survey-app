@@ -1,9 +1,11 @@
+<h1><%= @question.body%></h1>
+<div>
 <% @answers.each do |answer| %>
   <%unless answer.answer == nil?%>
   <%= "#{answer.answer}"%>
     <% end %>
   <%unless answer.rating_answer == nil?%>
   <%= "#{answer.rating_answer}"%>
-
+</div>
 <% end %>
 <% end %>
