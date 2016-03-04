@@ -13,15 +13,12 @@ class AnswersController < ApplicationController
   end
 
   def index
-
     @question = Question.find(params[:question_id])
     @answers = @question.answers
   end
 
   def create
-
     @question = Question.find(params[:question_id])
-
     @survey = Survey.find(@question.survey_id)
     @answer = @question.answers.create(answer_params)
     @answer.survey_id = @survey.id
