@@ -7,7 +7,6 @@
     <h3><%= 'Rating' %></h3>
   </div>
     <% @answers.each do |answer| %>
-    <% binding.pry%>
     <%unless answer.answer == nil%>
     <div class = "text-answer">
     <%= "#{answer.answer}"%>
