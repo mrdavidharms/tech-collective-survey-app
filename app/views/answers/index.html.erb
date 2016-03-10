@@ -5,7 +5,7 @@
       <h1><%= @question.body%></h1>
       <div class="column">
           <div class="small-12 columns">
-
+         <ul>
           <h3><%= 'Answer' %></h3>
             <% @answers.each do |answer| %>
               <%unless answer.answer == nil%>
@@ -14,11 +14,11 @@
               <% end %>
             <% end%>
               </div>
-            </div>
-          </div>
 
-          <div class="column">
-              <div class="small-12 columns">
+        </ul>
+         <ul>
+           <div class="rating" >
+
 
               <h3><%= 'Rating' %></h3>
                 <% @answers.each do |answer| %>
@@ -26,7 +26,10 @@
                   <div class = "rating-answer">
                     <%= "#{answer.rating_answer}"%>
                     <% end %>
-                  </div>
-                </div>
+
               </div>
                 <% end %>
+              </div>
+              </ul>
+            </div>
+          </div>
