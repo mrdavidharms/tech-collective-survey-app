@@ -52,11 +52,9 @@ class AnswersController < ApplicationController
     next_array = []
     @question = Question.find(params[:question_id])
     @questions = Question.where(survey_id: @question.survey_id)
-
     @questions.to_a.each do |question|
 
       if question.id > current_question.id
-
         next_array << question.id
       end
     end
