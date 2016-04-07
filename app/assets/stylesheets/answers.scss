@@ -1,20 +1,37 @@
-.rating-header {
-  width: 250px;
-  height: 10px;
-  line-height: 100px;
-  text-align: right;
+// .rating-header {
+//   width: 250px;
+//   height: 10px;
+//   line-height: 100px;
+//   text-align: right;
+// }
+//
+// .text-header {
+//   width: 250px;
+//   height: 0px;
+//   line-height: 100px;
+//   text-align: left;
+// }
+//
+form#new_answer {
+  width: 600px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 100px;
 }
 
-.text-header {
-  width: 250px;
-  height: 0px;
-  line-height: 100px;
-  text-align: left;
+.small-12 {
+  display:flex;
 }
 
-.rating-answer {
-  width: 250px;
-  height: 50px;
-  line-height: 100px;
-  text-align: right;
+.rating {
+  float: right;
+}
+.ul {
+margin:0;
+padding:0 0 0 15px;
+}
+
+.column{
+    float: left;
+    margin: 0 20px 0 0;
 }
