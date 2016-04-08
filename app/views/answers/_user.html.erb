@@ -1,23 +1,18 @@
 
   <tr>
-
-  <% form_for [@question, @answer] do |f| %>
-    <% @question.each do |question| %>
-      <% if @question.text? == true %>
-        <div class="survey-form-title">
-        <%= "#{question.body}" %>
-        <%= f.label :answer_body %>
-        <%= f.text_field :answer_body, placeholder: "Answer" %>
-      <div class="form-actions">
-        <%= f.button "Submit" %>
-      </div>
-      <% end %>
-    <% end%>
-  <% end %>
-
-
-
-    <br>
+    <% form_for [@question, @answer] do |f| %>
+      <% @question.each do |question| %>
+        <% if @question.text? == true %>
+          <div class="survey-form-title">
+          <%= "#{question.body}" %>
+          <%= f.label :answer_body %>
+          <%= f.text_field :answer_body, placeholder: "Answer" %>
+          <div class="form-actions">
+            <%= f.button "Submit" %>
+          </div>
+        <% end %>
+      <% end%>
+    <% end %>
   </tr>
   <% if admin_signed_in? %>
     <div class="row">

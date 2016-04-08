@@ -1,41 +1,30 @@
 
 <div class= "most-body">
-<p>
- <h1><%= "#{@survey.title} for #{@survey.group}" %> </h1>
-  <div class="edit-survey-name">
-  <%= link_to "Edit Survey Name and Group", edit_survey_path(@survey) %>
+  <p>
+    <h1><%= "#{@survey.title} for #{@survey.group}" %> </h1>
+    <div class="edit-survey-name">
+      <%= link_to "Edit Survey Name and Group", edit_survey_path(@survey) %>
+    </div>
+  </p>
+  <div class ="questions">
+    <% @questions.each do |question| %>
   </div>
-
-
-</p>
-
-<div class ="questions">
-<% @questions.each do |question| %>
-
-</div>
-
       <div class= "question-body">
         <%= link_to "#{question.body}", new_question_answer_path(question, @answer) %>
-
       </div>
-      <%= button_to "see #{question.body} answers",  question_answers_path(question, @answers), class: 'button success radius small', method: :get %>
-      <div class="row">
-      <div class= "button-tiny">
-        <%= button_to "Edit Question", edit_survey_question_path(@survey, question), class: "tiny-button", method: :get  %>
-      </div>
-        <div class= "button-tiny">
-          <%= button_to "Delete Question", survey_question_path(@survey, question), class: "tiny-button", method: :delete %>
-        </div>
-        <p></p>
-
-
-
-  <% end %>
-  <div class="row">
-    <div class= "add-button">
-    <%= button_to "Add Question", new_survey_question_path(@survey, @question), class: "button-round", method: :get  %>
-  </div>
-  </div>
-
-  </div>
+        <%= button_to "see #{question.body} answers",  question_answers_path(question, @answers), class: 'button success radius small', method: :get %>
+          <div class="row">
+            <div class= "button-tiny">
+              <%= button_to "Edit Question", edit_survey_question_path(@survey, question), class: "tiny-button", method: :get  %>
+            </div>
+          <div class= "button-tiny">
+            <%= button_to "Delete Question", survey_question_path(@survey, question), class: "tiny-button", method: :delete %>
+          </div>
+        <% end %>
+            <div class="row">
+              <div class= "add-button">
+                <%= button_to "Add Question", new_survey_question_path(@survey, @question), class: "button-round", method: :get  %>
+              </div>
+            </div>
+          </div>
 </div>

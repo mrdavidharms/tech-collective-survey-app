@@ -4,10 +4,5 @@
 <h5>Answer Choices</h5>
 
 <% question.answers.each do |answer| %>
-  <%= render partial: "answers/show", locals: { answer: answer } %>
-
-
-
-
-  
-      <% end %>
+<%= render partial: "answers/show", locals: { answer: answer } %>  
+<% end %>
