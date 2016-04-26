@@ -8,8 +8,6 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
 gem 'foundation-rails'
-gem 'formtastic', '~> 3.0'
-
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
