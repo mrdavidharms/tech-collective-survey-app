@@ -1,46 +1,41 @@
 
-  <tr>
+<tr>
 
-  <%= form_for [@question, @answer] do |f| %>
+<%= form_for [@question, @answer] do |f| %>
+    <%= "#{@question.body}" %>
+      <div class="answer-form-title">
 
-      <%= "#{@question.body}" %>
-          <div class="answer-form-title">
+        <% if @question.text == true && @question.rating == true && @question.require == false %>
+        <%= f.text_field :answer%>
+        <%= f.collection_radio_buttons(:rating_answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
 
-          <% if @question.text == true && @question.rating == true && @question.require == false %>
-          <%= f.text_field :answer%>
-          <%= f.collection_radio_buttons(:rating_answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
+        <% elsif @question.text == true && @question.rating == false && @question.require == false%>
+        <%= f.text_field :answer %>
 
-          <% elsif @question.text == true && @question.rating == false && @question.require == false%>
-          <%= f.text_field :answer %>
+        <% elsif @question.text == true && @question.rating == false && @question.require == true %>
+        <%= f.text_field :answer, :required => true, label: "required" %>
 
-          <% elsif @question.text == true && @question.rating == false && @question.require == true %>
-          <%= f.text_field :answer, :required => true, label: "required" %>
+        <% elsif @question.text == true && @question.rating == true && @question.require == true %>
+        <%= f.text_field :answer, :required => true, label: "required" %>
+        <%= f.collection_radio_buttons(:answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
 
-          <% elsif @question.text == true && @question.rating == true && @question.require == true %>
-          <%= f.text_field :answer, :required => true, label: "required" %>
+        <% elsif @question.rating == true %>
+        <%= f.collection_radio_buttons(:rating_answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
 
-          <%= f.collection_radio_buttons(:answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
-
-          <% elsif @question.rating == true %>
-          <%= f.collection_radio_buttons(:rating_answer, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last) %>
-          <% elsif @question.rating == true && @question.require == true %>
-          <%= f.collection_radio_buttons(:answer [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last,  required: true) %>
-
+        <% elsif @question.rating == true && @question.require == true %>
+        <%= f.collection_radio_buttons(:answer [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]], :first, :last,  required: true) %>
+        <% end %>
       </div>
-      <% end %>
+  <%= f.button "Submit Answer" %>
+<% end %>
+</tr>
 
-    <%= f.button "Submit Answer" %>
-  <% end %>
-
-
-    <br>
-  </tr>
-  <% if admin_signed_in? %>
-    <div class="row">
-      <p>
-        <p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
-        <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
-        <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
-      </p>
-    </div>
-    <% end %>
+<% if admin_signed_in? %>
+  <div class="row">
+    <p>
+      <p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
+      <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
+      <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
+    </p>
+  </div>
+<% end %>

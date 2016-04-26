@@ -25,8 +25,8 @@ feature "admin edits a question" do
 
       fill_in 'Body', with: "Ya but how do you really feel about it?"
       click_button "submit edit"
-
-      expect(page).to have_content "Ya but how do you really feel about it?"
+      save_and_open_page
+      expect(page).to have_button "Answers for: Ya but how do you really feel about it?"
       expect(page).to have_content "Question edited successfully"
     end
 
@@ -45,7 +45,7 @@ feature "admin edits a question" do
         fill_in 'Body', with: "Blardggg"
         click_button "submit edit"
 
-        expect(page).to have_content("Blardggg")
+        expect(page).to have_button "Answers for: Blardggg"
         expect(page).to have_content("Question edited successfully")
       end
     end

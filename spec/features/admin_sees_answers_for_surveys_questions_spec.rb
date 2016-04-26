@@ -24,7 +24,7 @@ feature 'admin sees list of answers' do
     end
 
     scenario "admin should see answers associated with survey1" do
-      click_button "see #{question1.body} answers"
+      click_button "Answers for: #{question1.body}"
 
       expect(page).to have_content question1.body
       expect(page).to have_content answer1.answer

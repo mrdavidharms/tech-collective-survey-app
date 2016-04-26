@@ -10,6 +10,37 @@
 .new_survey {
       margin: 5px;
 }
+
 .edit_survey {
   margin: 5px;
+}
+
+.admin-form {
+  width: 600px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+.admin-header {
+  width: 600px;
+  margin-left:auto;
+  margin-right: auto;
+
+}
+
+.admin-login {
+  height: auto;
+  display: inline-block;
+}
+
+.devise-links {
+  height: auto;
+  display: inline-block;
+  float: right;
+}
+
+.check-box {
+  float: right;
+  margin-left: 30px;
 }

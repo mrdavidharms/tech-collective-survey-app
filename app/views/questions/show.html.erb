@@ -1,17 +1,17 @@
 
 
-  <%=link_to " #{@question.body}", new_question_answer_path(@question, @answer) %></p> %>
-      <div class="answer-form-title">
+<%=link_to " #{@question.body}", new_question_answer_path(@question, @answer) %></p> %>
+  <div class="answer-form-title">
 
 
 
-</tr>
-<% if admin_signed_in? %>
-<div class="row">
-  <p>
-    <p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
-    <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
-    <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
-  </p>
-</div>
-<% end %>
+
+  <% if admin_signed_in? %>
+  <div class="row">
+    <p>
+      <p><%= link_to "New Question", new_survey_question_path(@survey, @question) %></p>
+      <p><%= link_to "Edit Survey", edit_survey_path(@survey) %></p>
+      <p><%= link_to "Delete Survey", @survey, method: :delete %></p>
+    </p>
+  </div>
+  <% end %>
