@@ -1,7 +1,8 @@
 
 <div class= "most-body">
   <p>
-    <h1><%= "#{@survey.title} for #{@survey.group}" %> </h1>
+    <h1><%= "#{@survey.title}" %> </h1>
+    <h2><%= "for #{@survey.group}"%></h2>
     <div class="edit-survey-name">
       <%= link_to "Edit Survey Name and Group", edit_survey_path(@survey) %>
     </div>
@@ -9,16 +10,18 @@
   <div class ="questions">
     <% @questions.each do |question| %>
   </div>
-      <div class= "question-body">
-        <%= link_to "#{question.body}", new_question_answer_path(question, @answer) %>
-      </div>
-        <%= button_to "see #{question.body} answers",  question_answers_path(question, @answers), class: 'button success radius small', method: :get %>
-          <div class="row">
-            <div class= "button-tiny">
+
+        <%= button_to "Answers for: #{question.body}",  question_answers_path(question, @answers), class: 'button success radius small', method: :get %>
+          <div class="column">
+            <div class= "question-body">
+              <%= link_to "preview question", new_question_answer_path(question, @answer) %>
+            </div>
+            <div class= "button-tiny-edit-question">
               <%= button_to "Edit Question", edit_survey_question_path(@survey, question), class: "tiny-button", method: :get  %>
             </div>
-          <div class= "button-tiny">
-            <%= button_to "Delete Question", survey_question_path(@survey, question), class: "tiny-button", method: :delete %>
+            <div class= "button-tiny-delete-question">
+              <%= button_to "Delete Question", survey_question_path(@survey, question), class: "tiny-button", method: :delete %>
+            </div>
           </div>
         <% end %>
             <div class="row">
