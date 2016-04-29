@@ -25,7 +25,6 @@ feature "admin edits a question" do
 
       fill_in 'Body', with: "Ya but how do you really feel about it?"
       click_button "submit edit"
-      save_and_open_page
       expect(page).to have_button "Answers for: Ya but how do you really feel about it?"
       expect(page).to have_content "Question edited successfully"
     end

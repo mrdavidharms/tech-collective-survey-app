@@ -2,31 +2,31 @@
 
     <body style>
             <div class="surveys">
-            <% unless @surveys.nil? %>
-              <% @surveys.each do |survey| %>
-
-                <%= link_to survey_questions_path(survey) do %>
-
-                    <% if admin_signed_in? == true %>
-
-                      <div class="survey-title"></p>
-                        <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
-                            <%= "For: #{survey.group}" %>
-                          
-                          </div>
-                            <div class="survey-title">
-                            <% elsif survey.publish == true && admin_signed_in? == false %>
-                            <p class="survey-title"></p>
-
+              <div class="row">
+                <div class="medium-8 large-centered columns">
+                  <% unless @surveys.nil? %>
+                    <% @surveys.each do |survey| %>
+                      <%= link_to survey_questions_path(survey) do %>
+                          <% if admin_signed_in? == true %>
+                            <div class="survey-button-and-group">
                               <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
+                              <div class="survey-group">
                                   <%= "For: #{survey.group}" %>
-                                </p>
+                                </div>
 
-                            <% else survey.publish == false && admin_signed_in? == false %>
+                            </div>
 
-
-                    </div>
-                  </div>
+                                <% elsif survey.publish == true && admin_signed_in? == false %>
+                                  <div class="survey-button-and-group">
+                                    <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
+                                    <div class="survey-group">
+                                      <%= "For: #{survey.group}" %>
+                                    </div>
+                                 <% else survey.publish == false && admin_signed_in? == false %>
+                              </div>
+                </div>
+              </div>
+            </div>
                      <% end %>
                 <% end %>
               <% end %>
