@@ -4,13 +4,10 @@
 
 
 .button.success.radius.small {
-  margin-left: 170px;
-  margin-right: auto;
+
   color: black;
   background-color: darkseagreen;
   white-space: normal;
-  padding-left: 80px;
-  padding-right: 80px;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: x-large;
@@ -18,17 +15,21 @@
   border-radius: 10px;
   border-width: 2px;
   border-color: blanchedalmond;
-  width: 450px;
+  width: 400px;
+  
 
 }
 
-div.surveys {
-  padding-left: 200px;
-  padding-top: 140px;
+.survey-group {
+  margin-top: 30px
+}
+
+.survey-button-and-group {
+  display: flex;
+  margin-top: 50px
 }
 
 .content {
   margin-left: inherit;
     margin-right: inherit;
-
 }
