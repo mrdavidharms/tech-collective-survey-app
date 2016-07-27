@@ -17,6 +17,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda'
   gem 'coveralls', require: false
+  gem 'spring-commands-rspec'
 end
 
 group :test do

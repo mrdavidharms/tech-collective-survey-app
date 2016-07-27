@@ -1,0 +1,19 @@
+<%= form_for(@survey) do |f| %>
+  <div class="form-row">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div class="form-row">
+    <%= f.label :group %>
+    <%= f.text_field :group, placeholder: "Group" %>
+  </div>
+  <div class="form-row">
+    <%= f.radio_button "publish", "false" %>
+    <%= f.label "publish", "private" %>
+    <%= f.radio_button "publish", "true" %>
+    <%= f.label "publish", "publish" %>
+  </div>
+  <div class="form-actions" id="form-button">
+    <%= f.button %>
+  </div>
+<% end %>

@@ -28,12 +28,12 @@ feature "admin edits a survey" do
 
     scenario "signed in admin sucessfully edits survey" do
 
-      expect(page).to have_content "Edit Survey Name and Group"
-      click_link "Edit Survey Name and Group"
+      expect(page).to have_content "Edit"
+      click_link "Edit"
 
       fill_in 'Title', with: "Tech Force"
       fill_in 'Group', with: "Kids"
-      click_button "Edit"
+      click_button "Update Survey"
 
       expect(page).to have_content "Tech Force"
       expect(page).to have_content "Kids"
@@ -41,13 +41,13 @@ feature "admin edits a survey" do
     end
 
     scenario 'admin edits a survey to publish' do
-      click_link "Edit Survey Name and Group"
+      click_link "Edit"
 
       fill_in 'Title', with: "Published Tech Force"
       fill_in 'Group', with: "Published Kids"
       choose 'survey_publish_true'
 
-      click_button 'Edit'
+      click_button 'Update Survey'
 
       expect(page).to have_content "Survey edited successfully"
       expect(page).to have_content "Published Tech Force"
@@ -64,23 +64,23 @@ feature "admin edits a survey" do
 
       scenario "admin can edit other admins survey" do
 
-        click_link "Edit Survey Name and Group"
+        click_link "Edit"
 
         fill_in 'Title', with: "Blardggg"
         fill_in 'Group', with: "Badadminss"
-        click_button "Edit"
+        click_button "Update Survey"
 
         expect(page).to have_content("Blardggg")
         expect(page).to have_content("Survey edited successfully")
       end
     end
     scenario "admin does not fill in correct information" do
-      click_link "Edit Survey Name and Group"
+      click_link "Edit"
 
       fill_in 'Title', with: ""
       fill_in 'Group', with: ""
 
-      click_button "Edit"
+      click_button "Update Survey"
       expect(page).to have_content "Title can't be blank"
     end
   end

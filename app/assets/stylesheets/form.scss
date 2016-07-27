@@ -1,14 +1,8 @@
 @import "colors";
 @import "foundation_and_overrides";
 
-
-.question-form-row {
-  float: left;
-  display: flex;
-}
-
 .new_survey {
-      margin: 5px;
+  margin: 5px;
 }
 
 .edit_survey {
@@ -43,4 +37,14 @@
 .check-box {
   float: right;
   margin-left: 30px;
+}
+
+#form-button {
+  position: relative;
+  left: 40%;
+  bottom: 20px;
+}
+
+.form-header {
+  text-align: center;
 }

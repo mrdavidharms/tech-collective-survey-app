@@ -1,21 +1,17 @@
 
-<div class= "question-index-top">
-  <p>
+<div class= "question-index">
+  <div class="row" id="survey-question-index">
+    <div class="large-5 large-centered columns">
+    <h1 class="survey-group"><%= "Survey title: #{@survey.title}" %></h1>
+    <h2 <h1 class="survey-group"><%= "Group: #{@survey.group}"%> <button><%= link_to "Edit", edit_survey_path(@survey) %></button> </h2>
+  </div>
+</div>
 
-    <h1><%= "Survey title: #{@survey.title}" %> </h1>
-    <h2><%= "Group: #{@survey.group}"%></h2>
 
 
-      <h2><%= link_to "Edit Survey Name and Group", edit_survey_path(@survey) %></h2>
-      <div class= "add-button">
-        <%= button_to "Add Question", new_survey_question_path(@survey, @question), class: "button-round", method: :get  %>
-      </div>
-    </div>
-
-  </p>
   <div class ="questions">
     <% @questions.each do |question| %>
-  </div>
+
       <div class="row">
         <div class="medium-12 columns">
         <%= button_to "Answers for: #{question.body}",  question_answers_path(question, @answers), class: 'question button success radius small', method: :get %>
@@ -30,6 +26,11 @@
     </div>
         <% end %>
           </div>
+          <div class= "add-button">
+            <%= button_to "Add Question", new_survey_question_path(@survey, @question), class: "button-round", method: :get  %>
+          </div>
+            </div>
+
       <script>
         $(document).foundation();
       </script>

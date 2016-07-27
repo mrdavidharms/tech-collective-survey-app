@@ -20,7 +20,7 @@ feature 'survey publish function' do
       fill_in 'Title', with: "Published survey"
       fill_in 'Group', with: "Group for people"
       choose 'survey_publish_true'
-      click_button 'Add Survey'
+      click_button 'Create Survey'
 
       expect(page).to have_content "Survey Added Successfully"
       expect(page).to have_content "Published survey"

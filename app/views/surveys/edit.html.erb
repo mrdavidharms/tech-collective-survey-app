@@ -1,25 +1,6 @@
-<h1>Edit Survey</h1>
-<%= form_for(@survey) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title, placeholder: "Title" %>
-  </div>
-  <div>
-    <%= f.label :group %>
-    <%= f.text_field :group, placeholder: "Survey For" %>
-  </div>
-  <div>
-    <%= f.radio_button "publish", "false" %>
-    <%= f.label "publish", "private" %>
-    <%= f.radio_button "publish", "true" %>
-    <%= f.label "publish", "publish" %>
-  </div>
-  <div class="actions"></div>
-  <%= f.button "Edit" %>
-<% end %>
-<div>
-
-</div>
+<% provide(:title, 'Edit') %>
+  <h1 class="form-header">Edit Survey</h1>
+<%= render 'form' %>
 
 <div>
   <%= link_to 'Back', surveys_path %>
