@@ -4,7 +4,6 @@
 
 
 .button.success.radius.small {
-
   color: black;
   background-color: darkseagreen;
   white-space: normal;
@@ -16,12 +15,25 @@
   border-width: 2px;
   border-color: blanchedalmond;
   width: 400px;
-  
 
 }
 
+.surveys {
+  position: absolute;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.flash {
+  padding-top: 100px;
+  color: $green;
+  text-align: center;
+  font-size: 30px;
+}
+
 .survey-group {
-  margin-top: 30px
+  margin-bottom: 20px;
+  white-space: nowrap;
 }
 
 .survey-button-and-group {
@@ -29,7 +41,7 @@
   margin-top: 50px
 }
 
-.content {
-  margin-left: inherit;
-    margin-right: inherit;
+.survey-index {
+    margin: 10%;
+
 }

@@ -1,59 +1,57 @@
 .question-body {
-    font-size: larger;
-    font-family: -webkit-body;
-    position: relative;
-    margin-left: 400px;
-    margin-top: -140px;
-    margin-bottom: 50px;
+  font-size: larger;
+  font-family: -webkit-body;
+  position: relative;
+  margin-left: 400px;
+  margin-top: -140px;
+  margin-bottom: 50px;
 
-  }
+}
 
-  .question-index-top {
-    margin-left: 100px;
+.question-index-top {
+  margin:10%
 
-  }
+}
 
-  .tiny-button {
-      width:150px;
-      border-width: thick;
-  }
+.tiny-button {
+    width:150px;
+    border-width: thick;
+}
 
-  .button-round {
-    margin-right: 347px;
-    color: black;
-    background-color: beige;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-size: large;
-    font-family: serif;
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: black;
-    width: 390px;
-  }
+.button-round {
+  margin-right: 347px;
+  color: black;
+  background-color: beige;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: large;
+  font-family: serif;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: black;
+  width: 390px;
+}
 
-  .question.button.success.radius.small {
+.question.button.success.radius.small {
 
-    color: black;
-    background-color: darkseagreen;
-    white-space: normal;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    font-size: x-large;
-    font-family: serif;
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: blanchedalmond;
-    width: 400px;
-    height: 150px;
+  color: black;
+  background-color: darkseagreen;
+  white-space: normal;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: x-large;
+  font-family: serif;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: blanchedalmond;
+  width: 400px;
+  height: 150px;
 
-  }
-
-
+}
 
 .content {
-  margin-left: 10px
+  margin-left: 10%;
 
 }
