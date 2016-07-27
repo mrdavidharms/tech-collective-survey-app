@@ -21,7 +21,7 @@
 .button-round {
   margin-right: 347px;
   color: black;
-  background-color: beige;
+  background-color: $beige;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 30px;
@@ -30,14 +30,14 @@
   font-family: serif;
   border-radius: 10px;
   border-width: 2px;
-  border-color: black;
+  border-color: $black;
   width: 390px;
 }
 
 .question.button.success.radius.small {
 
   color: black;
-  background-color: darkseagreen;
+  background-color: $darkseagreen;
   white-space: normal;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -45,7 +45,7 @@
   font-family: serif;
   border-radius: 10px;
   border-width: 2px;
-  border-color: blanchedalmond;
+  border-color: $blanchedalmond;
   width: 400px;
   height: 150px;
 
