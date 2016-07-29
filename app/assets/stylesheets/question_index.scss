@@ -8,9 +8,36 @@
 
 }
 
+.questions {
+  position: absolute;
+
+}
+
+.add-button {
+  position: inherit;
+  margin-left: 200px;
+}
+
+.question-index-header {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap;
+  top: 100px;
+  right: 80px;
+}
+
+.question-index-group {
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  top: 100px;
+  right: 80px;
+  margin-bottom: 30%;
+}
+
 .question-index-top {
   margin:10%
-
 }
 
 .tiny-button {
@@ -32,6 +59,22 @@
   border-width: 2px;
   border-color: $black;
   width: 390px;
+}
+
+#survey-question-index {
+  position: relative;
+  right: 100px;
+}
+
+#radio-row {
+  display: flex;
+  position: relative;
+  right: 260px;
+}
+
+.form-row {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .question.button.success.radius.small {

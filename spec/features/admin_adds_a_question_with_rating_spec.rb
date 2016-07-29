@@ -12,7 +12,7 @@ feature 'Admin makes a question using rating function' do
     scenario "admin adds questions using rating function" do
       fill_in 'Body', with: "On a scale of 1-10 what do you think?"
       check "question_rating"
-      click_button 'Add Question'
+      click_button 'Create Question'
 
       expect(page).to have_content "Your question has been successfully added"
       expect(page).to have_button "Answers for: On a scale of 1-10 what do you think?"
@@ -21,7 +21,7 @@ feature 'Admin makes a question using rating function' do
       fill_in 'Body', with: "On a scale of 1-10 what do you think?"
       check "question_rating"
       check "question_text"
-      click_button 'Add Question'
+      click_button 'Create Question'
 
       click_button "Answers for: On a scale of 1-10 what do you think?"
 

@@ -29,7 +29,7 @@ feature "admins can add a new question for a survey" do
     scenario "admin can see options for creating a question" do
       visit new_survey_question_path(survey)
 
-      expect(page).to have_button 'Add Question'
+      expect(page).to have_button 'Create Question'
       expect(page).to have_content 'Rating'
     end
 
@@ -44,7 +44,7 @@ feature "admins can add a new question for a survey" do
     scenario "admin adds tries to add a blank question" do
       visit new_survey_question_path(survey)
       fill_in 'Body', with: ""
-      click_button 'Add Question'
+      click_button 'Create Question'
 
       expect(page).to_not have_content "Your question has been successfully added"
       expect(page).to have_content "Body can't be blank"
@@ -54,7 +54,7 @@ feature "admins can add a new question for a survey" do
       visit new_survey_question_path(survey)
       fill_in 'Body', with: "what do you think?"
       check "question_text"
-      click_button 'Add Question'
+      click_button 'Create Question'
 
       expect(page).to have_content "Your question has been successfully added"
       expect(page).to have_button "Answers for: what do you think?"

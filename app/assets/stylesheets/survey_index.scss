@@ -25,10 +25,15 @@
 }
 
 .flash {
-  padding-top: 100px;
+  position: absolute;
+  left: 350px;
+  margin: auto;
+  z-index: 1000;
   color: $green;
-  text-align: center;
   font-size: 30px;
+  font-style: oblique;
+  top: 10%;
+
 }
 
 .survey-group {

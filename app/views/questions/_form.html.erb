@@ -1,17 +1,20 @@
 <%= form_for [@survey, @question] do |f| %>
-  <div class="question-form-title">
+  <div class="form-row">
     <%= f.label :Body %>
     <%= f.text_field :body, placeholder: "Body" %>
   </div>
-  <div class="question-form-rating">
-    <%= f.label :text %>
-    <%= f.check_box :text, {}, "true", "false" %>
-  </div>
-  <div class="question-form-rating">
-    <%= f.label :Rating %>
-    <%= f.check_box :rating, {}, "true", "false" %>
-  </div>
-  <div class="form-actions">
-    <%= f.button "Add Question" %>
-  </div>
+  <div class="row">
+    <div class="large-8 large-centered columns" div id="radio-row">
+      <div class="form-row">
+        <%= f.label :text %>
+        <%= f.check_box :text, {}, "true", "false" %>
+      </div>
+      <div class="form-row">
+        <%= f.label :Rating %>
+        <%= f.check_box :rating, {}, "true", "false" %>
+      </div>
+    </div>
+    <div class="form-actions" id="form-button">
+      <%= f.button %>
+    </div>
 <% end %>
