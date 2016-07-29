@@ -1,9 +1,9 @@
 
-<div class= "question-index">
+
   <div class="row" id="survey-question-index">
     <div class="large-5 large-centered columns">
-    <h1 class="survey-group"><%= "Survey title: #{@survey.title}" %></h1>
-    <h2 <h1 class="survey-group"><%= "Group: #{@survey.group}"%> <button><%= link_to "Edit", edit_survey_path(@survey) %></button> </h2>
+    <h1 class="question-index-header"><%= "Survey title: #{@survey.title}" %></h1>
+    <h1 class="question-index-group"><%= "Group: #{@survey.group}"%> <button><%= link_to "Edit", edit_survey_path(@survey) %></button> </h1>
   </div>
 </div>
 
@@ -13,7 +13,7 @@
     <% @questions.each do |question| %>
 
       <div class="row">
-        <div class="medium-12 columns">
+        <div class="large-5 large-centered columns" id="question-row">
         <%= button_to "Answers for: #{question.body}",  question_answers_path(question, @answers), class: 'question button success radius small', method: :get %>
           <div class="column">
             <div class= "question-body">
@@ -25,9 +25,10 @@
       </div>
     </div>
         <% end %>
-          </div>
+
           <div class= "add-button">
             <%= button_to "Add Question", new_survey_question_path(@survey, @question), class: "button-round", method: :get  %>
+                      </div>
           </div>
             </div>
 

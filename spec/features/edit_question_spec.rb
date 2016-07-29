@@ -24,7 +24,7 @@ feature "admin edits a question" do
     scenario "signed in admin sucessfully edits question" do
 
       fill_in 'Body', with: "Ya but how do you really feel about it?"
-      click_button "submit edit"
+      click_button "Update Question"
       expect(page).to have_button "Answers for: Ya but how do you really feel about it?"
       expect(page).to have_content "Question edited successfully"
     end
@@ -42,7 +42,7 @@ feature "admin edits a question" do
       scenario "admin can edit other admins survey" do
 
         fill_in 'Body', with: "Blardggg"
-        click_button "submit edit"
+        click_button "Update Question"
 
         expect(page).to have_button "Answers for: Blardggg"
         expect(page).to have_content("Question edited successfully")
@@ -51,7 +51,7 @@ feature "admin edits a question" do
     scenario "admin does not fill in correct information" do
       fill_in 'Body', with: ""
 
-      click_button "submit edit"
+      click_button "Update Question"
       expect(page).to have_content "Body can't be blank"
     end
   end

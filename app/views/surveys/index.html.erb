@@ -1,44 +1,49 @@
 <html class="no-js" lang="en">
   <body style>
     <div class="survey-index">
-    <div class="surveys">
-
-          <% unless @surveys.nil? %>
-            <% @surveys.each do |survey| %>
-              <%= link_to survey_questions_path(survey) do %>
-                  <% if admin_signed_in? == true %>
-                  <div class="row">
-                    <div class="medium-4 medium-centered columns">
+      <div class="surveys">
+        <% unless @surveys.nil? %>
+          <% @surveys.each do |survey| %>
+            <%= link_to survey_questions_path(survey) do %>
+              <% if admin_signed_in? == true %>
+                <div class="row">
+                  <div class="medium-4 medium-centered columns">
                     <div class="survey-button">
                       <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
                     </div>
                   </div>
-                  </div>
-
-                      <div class="survey-group">
-                        <div class="row">
-                          <div class="large-4 large-centered columns">
-                          <%= "Group: #{survey.group}" %>
-                        </div>
-                      </div>
+                </div>
+                <div class="survey-group">
+                  <div class="row">
+                    <div class="large-4 large-centered columns">
+                      <%= "Group: #{survey.group}" %>
                     </div>
+                  </div>
+                </div>
 
-                        <% elsif survey.publish == true && admin_signed_in? == false %>
-                          <div class="survey-button-and-group">
-                            <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
-                            <div class="survey-group">
-                              <%= "For: #{survey.group}" %>
-                            </div>
-                            </div>
-                         <% else survey.publish == false && admin_signed_in? == false %>
-
-             <% end %>
-        <% end %>
-      <% end %>
-    <% else %>
+              <% elsif survey.publish == true && admin_signed_in? == false %>
+                <div class="row">
+                  <div class="medium-4 medium-centered columns">
+                    <div class="survey-button">
+                      <%= link_to survey.title, survey_questions_path(survey), class: 'button success radius small' %>
+                    </div>
+                  </div>
+                </div>
+                <div class="survey-group">
+                  <div class="row">
+                    <div class="large-4 large-centered columns">
+                      <%= "Group: #{survey.group}" %>
+                    </div>
+                  </div>
+                </div>
+              <% else survey.publish == false && admin_signed_in? == false %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% else %>
           <h2>No results found</h2>
-    <% end %>
-  </div>
+        <% end %>
+      </div>
       <script>
         $(document).foundation();
       </script>
