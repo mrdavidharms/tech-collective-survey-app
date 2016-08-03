@@ -6,19 +6,55 @@ form#new_answer {
   margin-top: 100px;
 }
 
+.row {
+  display: flex;
+}
+
+.column {
+
+  padding: 1em;
+  border: solid;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.column.small-centered {
+margin-left: auto;
+margin-right: auto;
+float: none
+}
+
+.rating-title {
+  position: absolute;
+  left: 900px;
+}
+
+.answer-headings {
+  display: inline-flex;
+  position: relative;
+}
+
+.answers {
+  margin-right: 100px;
+}
+
 .small-12 {
   display:flex;
 }
 
-.rating {
-  float: right;
-}
-.ul {
-margin:0;
-padding:0 0 0 15px;
+#text-answer {
+  border: solid;
+  word-wrap: break-word;
+
 }
 
-.column{
-    float: left;
-    margin: 0 20px 0 0;
+
+#rating-answer {
+  position: relative;
+  border: solid;
+  border-left: none;
 }

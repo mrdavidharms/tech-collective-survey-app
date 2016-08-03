@@ -16,10 +16,10 @@ class QuestionsController < ApplicationController
   def index
     if admin_signed_in?
     survey = Survey.find(params[:survey_id])
-    @questions = survey.questions
+    @questions = survey.questions.order(:created_at)
     else admin_signed_in? == false
       survey = Survey.find(params[:survey_id])
-      @questions = survey.questions
+      @questions = survey.questions.order(:created_at)
       @question = @questions.first
       redirect_to new_question_answer_path(@question, @answer)
     end
@@ -58,8 +58,8 @@ class QuestionsController < ApplicationController
 
   def destroy
     question.destroy
+    redirect_to survey_questions_path(survey)
     flash[:success] = "Question Deleted"
-    redirect_to survey_path(survey)
   end
 
   private
