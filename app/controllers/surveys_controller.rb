@@ -2,7 +2,7 @@ class SurveysController < ApplicationController
   before_action :authorize_admin, except: [:index, :show]
 
   def index
-    @surveys = Survey.all
+    @surveys = Survey.order(:created_at)
   end
 
   def show
