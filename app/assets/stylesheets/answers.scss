@@ -40,9 +40,17 @@ float: none
   display:flex;
 }
 
+#no-text-answer {
+  border: solid;
+  word-wrap: break-word;
+  height: 30px;
+
+}
+
 #text-answer {
   border: solid;
   word-wrap: break-word;
+
 
 }
 
