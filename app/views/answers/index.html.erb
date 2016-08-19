@@ -11,16 +11,40 @@
 </div>
 
 <% @answers.each do |answer| %>
-  <%unless answer.answer == nil %>
+<%if answer.answer != nil %>
     <div class="answers">
       <div class="row">
+
         <div class="small-10 columns" id="text-answer"><%= "#{answer.answer}"%>
         </div>
         <div class="small-2 small-centered-columns" id= "rating-answer">
           <div class="centered"><%= "#{answer.rating_answer}"%>
           </div>
+
         </div>
+
       </div>
     </div>
-  <% end %>
+
+
+
+        <%else%>
+        <div class="answers">
+          <div class="row">
+            <div class="small-10 columns" id="no-text-answer"><%= "#{answer.answer}"%>
+            </div>
+
+
+
+
+        <div class="small-2 small-centered-columns" id= "rating-answer">
+          <div class="centered"><%= "#{answer.rating_answer}"%>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+      <% end %>
 <% end %>
